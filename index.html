@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Autumn Aldrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --text:#f2f2f2;
+    --text-dim:#a3a3a3;
+    --line:#2b2b2b;
+    --accent:#f2f2f2;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Poppins', sans-serif;
+    font-weight:300;
+    line-height:1.65;
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--text); color:#000; }
+  :focus-visible{ outline:2px solid var(--text); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:center;
+    gap:2.6rem;
+    padding:24px 5vw;
+    background:rgba(0,0,0,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  nav a{
+    font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-dim); font-weight:500;
+    transition:color 0.2s;
+    padding-bottom:4px;
+    border-bottom:1px solid transparent;
+  }
+  nav a:hover{ color:var(--text); border-bottom-color:var(--text); }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 6vw; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    text-align:center;
+    padding:90px 6vw 70px;
+  }
+  .hero h1{
+    font-size:clamp(2rem, 5vw, 3.2rem);
+    font-weight:600; letter-spacing:0.04em;
+  }
+  .hero p{
+    margin-top:18px; color:var(--text-dim); font-size:1.05rem; font-weight:300;
+  }
+
+  /* ---------- SECTION ---------- */
+  section{ padding:50px 0 30px; }
+  .section-title{
+    text-align:center;
+    font-size:1.3rem; font-weight:600; letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:50px;
+    position:relative;
+  }
+  .section-title::after{
+    content:''; display:block; width:36px; height:2px; background:var(--text);
+    margin:14px auto 0;
+  }
+
+  /* ---------- PROJECT BLOCK ---------- */
+  .project{
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:last-child{ border-bottom:none; }
+  .project h3{
+    font-size:1.15rem; font-weight:600; letter-spacing:0.06em;
+    text-transform:uppercase; margin-bottom:16px;
+  }
+  .project p{
+    color:var(--text-dim); font-weight:300; max-width:70ch; margin-bottom:12px;
+  }
+  .project-link{
+    display:inline-block; margin:10px 0 24px;
+    font-size:0.9rem; font-weight:500;
+    border-bottom:1px solid var(--text); padding-bottom:2px;
+    transition:opacity 0.2s;
+  }
+  .project-link:hover{ opacity:0.6; }
+
+  .thumb-row{
+    display:flex; gap:16px; flex-wrap:wrap;
+  }
+  .thumb-row a{
+    display:block; width:180px; height:180px; border-radius:2px; overflow:hidden;
+    flex-shrink:0;
+  }
+  .thumb-row img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+  .thumb-row a:hover img{ transform:scale(1.05); }
+
+  @media (max-width:600px){
+    .thumb-row a{ width:140px; height:140px; }
+  }
+
+  /* ---------- ART GRID ---------- */
+  .art-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+  }
+  @media (max-width:760px){ .art-grid{ grid-template-columns:repeat(2,1fr); } }
+  .art-item{ text-align:center; }
+  .art-item a{ display:block; aspect-ratio:1; border-radius:2px; overflow:hidden; }
+  .art-item img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
+  .art-item a:hover img{ transform:scale(1.05); }
+  .art-item .cap{
+    margin-top:10px; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-dim); font-weight:500;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:260px 1fr; gap:50px; align-items:start;
+  }
+  @media (max-width:700px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{
+    width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px;
+  }
+  .about-body h3{ font-size:1.3rem; font-weight:600; margin-bottom:6px; }
+  .about-body .contact-line{ color:var(--text-dim); font-size:0.92rem; margin-bottom:18px; }
+  .about-body p{ color:var(--text-dim); font-weight:300; max-width:60ch; margin-bottom:14px; }
+  .about-contacts{ display:flex; flex-wrap:wrap; gap:14px; margin-top:20px; }
+  .btn{
+    display:inline-block; padding:11px 20px; font-size:0.82rem; font-weight:500;
+    letter-spacing:0.06em; text-transform:uppercase; border:1px solid var(--text);
+    border-radius:2px; transition:all 0.2s;
+  }
+  .btn:hover{ background:var(--text); color:#000; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center; padding:40px 6vw 50px;
+    border-top:1px solid var(--line);
+    color:var(--text-dim); font-size:0.82rem; font-weight:300; margin-top:40px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="http://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
+  <a href="#work">Portfolio</a>
+  <a href="https://9aa11266-b071-4151-ae55-1ba2c1bf4d55.filesusr.com/ugd/685d3d_3d2a7e64dac44a5fa214087fa004366c.pdf" target="_blank" rel="noopener">Resume</a>
+  <a href="#about">About</a>
+</nav>
+
+<section class="hero">
+  <h1>AUTUMN ALDRICH</h1>
+  <p>Welcome to my engineering and design portfolio — take a look around!</p>
+</section>
+
+<section id="work" class="wrap">
+  <h2 class="section-title">Engineering Projects</h2>
+
+  <div class="project">
+    <h3>FSAE Drag Reduction System</h3>
+    <p>I am currently leading the research, design, and prototyping of a pneumatic Drag Reduction System (DRS) for the rear wing of UCI's Formula SAE Electric Racing Team.</p>
+    <p>While the current prototype is focused on the rear wing, the broader objective of this project is to establish a foundation for the future integration of active aerodynamic systems across the entire car.</p>
+    <a class="project-link" href="https://aldrichautumn.wixsite.com/portfolio/fsaedrs" target="_blank" rel="noopener">check out this project!</a>
+    <div class="thumb-row">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/fsaedrs" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_8f7efeb887254bedaf7aac4ad8b4f7c0~mv2.png/v1/crop/x_119,y_0,w_1168,h_1168/fill/w_404,h_404,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image%20(29).png" alt="FSAE DRS linkage CAD" loading="lazy">
+      </a>
+      <a href="https://aldrichautumn.wixsite.com/portfolio/fsaemolds" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_521e0c2c41454a25ae64064aa6807fd4~mv2.jpeg/v1/crop/x_770,y_0,w_1980,h_1980/fill/w_404,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20from%20iOS.jpeg" alt="FSAE composites tooling" loading="lazy">
+      </a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h3>FSAE Composites and Tooling Design</h3>
+    <p>To take Anteater Electric Racing's composites manufacturing to the next level, I took charge of researching and documenting the resin infusion process, helped out with many infusion tests, and created a versatile design plan to create tooling in Fusion 360 for our carbon fiber aerobody parts.</p>
+    <a class="project-link" href="https://aldrichautumn.wixsite.com/portfolio/fsaemolds" target="_blank" rel="noopener">check out this project!</a>
+  </div>
+
+  <div class="project">
+    <h3>Witch King Armor Project</h3>
+    <p>For a class final project (UCI's MAE 52: Computer-Aided Design), I recreated the Witch King of Angmar's armor from the Lord of the Rings to my own proportions in SolidWorks CAD.</p>
+    <p>The final version of this project contained 42 moving joints (ball and hinge) and 25 distinct armor parts.</p>
+    <a class="project-link" href="https://aldrichautumn.wixsite.com/portfolio/witchking" target="_blank" rel="noopener">check out this project!</a>
+    <div class="thumb-row">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/witchking" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_0b727187e33d46a89ee5013feaa77e8c~mv2.jpg/v1/fill/w_404,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ONE_OF_NINE_1%20(1)_edited.jpg" alt="Witch King armor CAD" loading="lazy">
+      </a>
+      <a href="https://aldrichautumn.wixsite.com/portfolio/autonrover" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_c7447f1645644d34a574f8dc0ddf0bf1~mv2.jpg/v1/crop/x_12,y_0,w_1147,h_1147/fill/w_404,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2679_edited.jpg" alt="Autonomous rover" loading="lazy">
+      </a>
+    </div>
+  </div>
+
+  <div class="project">
+    <h3>Autonomous Rover</h3>
+    <p>In UCI's ENGR 7B elective, I was the CAD Design Lead on our team of seven. Our goal was to design a color tracking and line following rover that could pick up a can at the end of the track. I was in charge of designing the claw and lift mechanism and the decorative "M-O" from WALL-E element. Additionally, I assisted with integrating various components onto our rover's chassis.</p>
+    <a class="project-link" href="https://aldrichautumn.wixsite.com/portfolio/autonrover" target="_blank" rel="noopener">check out this project!</a>
+  </div>
+
+  <div class="project">
+    <h3>VEX Robot '23-'24</h3>
+    <p>In my last year of VEX Robotics in high school, I designed and built multiple components on our award-winning robot.</p>
+    <a class="project-link" href="https://aldrichautumn.wixsite.com/portfolio/vexrobot" target="_blank" rel="noopener">check out this project!</a>
+    <div class="thumb-row">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/vexrobot" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_c77730dc64454d509cb294018d41d27d~mv2.jpeg/v1/fill/w_404,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5344.jpeg" alt="VEX robotics robot" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="art" class="wrap">
+  <h2 class="section-title">Art and Design</h2>
+  <div class="art-grid">
+    <div class="art-item">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/tetrislamp" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_7094c5599c5340d4878a16efed715cb9~mv2.jpeg/v1/crop/x_0,y_504,w_3024,h_3024/fill/w_255,h_255,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2098.jpeg" alt="Tetris Lamp" loading="lazy">
+      </a>
+      <div class="cap">Tetris Lamp</div>
+    </div>
+    <div class="art-item">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/bulletjournaling" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_c7e2b92c2b8c4d198f24919383b97888~mv2.jpeg/v1/fill/w_255,h_255,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9EFB3E2D-7A84-4291-92CC-FD85FF75157C.jpeg" alt="Bullet Journal" loading="lazy">
+      </a>
+      <div class="cap">Bullet Journal</div>
+    </div>
+    <div class="art-item">
+      <a href="https://aldrichautumn.wixsite.com/portfolio/fsae-graphics-gallery" target="_blank" rel="noopener">
+        <img src="https://static.wixstatic.com/media/685d3d_0e9866e455f04510954c512d91e04e96~mv2.jpg/v1/fill/w_255,h_255,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AER_winter_apps_post.jpg" alt="FSAE Graphics" loading="lazy">
+      </a>
+      <div class="cap">FSAE Graphics</div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <h2 class="section-title">About</h2>
+  <div class="about-grid">
+    <img class="about-photo" src="https://static.wixstatic.com/media/685d3d_52439e3271cc4e79be87adb30ff14a63~mv2.jpeg/v1/crop/x_0,y_356,w_3015,h_3676/fill/w_500,h_625,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3417.jpeg" alt="Autumn Aldrich" loading="lazy">
+    <div class="about-body">
+      <h3>About Me</h3>
+      <div class="contact-line">aldricha@uci.edu</div>
+      <p>Hello! I'm Autumn Aldrich, a second year Mechanical Engineering student at UCI. Having been a part of VEX Robotics since middle school, I have been deeply interested in engineering for most of my life. I am currently on the aerodynamics sub-team of UCI's FSAE EV Racing team leading the design and manufacturing of our drag reduction system.</p>
+      <div class="about-contacts">
+        <a class="btn" href="https://9aa11266-b071-4151-ae55-1ba2c1bf4d55.filesusr.com/ugd/685d3d_3d2a7e64dac44a5fa214087fa004366c.pdf" target="_blank" rel="noopener">Download Resume</a>
+        <a class="btn" href="http://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>2026 by autumn aldrich</footer>
+
+</body>
+</html>
