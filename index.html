@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autumn Aldrich — Mechanical Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint: #000000;
+    --blueprint-deep: #000000;
+    --line: #aed0ee;
+    --line-dim: #6f92b8;
+    --paper: #f3f0e6;
+    --paper-dim: #e7e2d2;
+    --ink: #16213d;
+    --ink-dim: #4a5674;
+    --gold: #ffc72c;
+    --safety: #e6532c;
+    --mono: 'Poppins', sans-serif;
+    --sans: 'Poppins', sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--blueprint);
+    color:var(--line);
+    font-family:var(--sans);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+
+  /* blueprint grid background */
+  .grid-bg{
+    background-image:
+      linear-gradient(rgba(174,208,238,0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(174,208,238,0.09) 1px, transparent 1px),
+      linear-gradient(rgba(174,208,238,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(174,208,238,0.05) 1px, transparent 1px);
+    background-size:80px 80px, 80px 80px, 16px 16px, 16px 16px;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  ::selection{ background:var(--gold); color:var(--ink); }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 5vw;
+    background:rgba(0,0,0,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(174,208,238,0.25);
+  }
+  .nav-mark{
+    font-family:var(--mono); font-weight:700; font-size:0.85rem;
+    letter-spacing:0.12em; color:var(--line);
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav-mark .dot{ width:8px; height:8px; background:var(--gold); border-radius:50%; display:inline-block; }
+  .nav-links{ display:flex; gap:2.2rem; font-family:var(--mono); font-size:0.78rem; letter-spacing:0.08em; }
+  .nav-links a{ color:var(--line-dim); transition:color 0.2s; position:relative; }
+  .nav-links a:hover{ color:var(--gold); }
+
+  @media (max-width:720px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- SHEET FRAME (signature element) ---------- */
+  .sheet{
+    position:relative;
+    margin:0 auto;
+    max-width:1200px;
+    padding:70px 5vw 60px;
+  }
+  .crop-tl, .crop-tr, .crop-bl, .crop-br{
+    content:''; position:absolute; width:22px; height:22px;
+    border-color:var(--line-dim); opacity:0.6;
+  }
+  .crop-tl{ top:18px; left:18px; border-top:1.5px solid; border-left:1.5px solid; }
+  .crop-tr{ top:18px; right:18px; border-top:1.5px solid; border-right:1.5px solid; }
+  .crop-bl{ bottom:18px; left:18px; border-bottom:1.5px solid; border-left:1.5px solid; }
+  .crop-br{ bottom:18px; right:18px; border-bottom:1.5px solid; border-right:1.5px solid; }
+
+  .sheet-label{
+    position:absolute; top:34px; left:5vw;
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.15em;
+    color:var(--line-dim); text-transform:uppercase;
+  }
+  .sheet-label span{ color:var(--gold); }
+
+  /* dimension-line divider */
+  .dim-divider{
+    display:flex; align-items:center; gap:14px;
+    margin:48px 0 40px; opacity:0.85;
+  }
+  .dim-divider .tick{ width:1px; height:14px; background:var(--line-dim); }
+  .dim-divider .rule{ flex:1; height:1px; background:var(--line-dim); position:relative; }
+  .dim-divider .label{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--line-dim); white-space:nowrap; text-transform:uppercase;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+    padding-top:90px;
+  }
+  .hero .eyebrow{
+    font-family:var(--mono); font-size:0.8rem; letter-spacing:0.2em;
+    color:var(--gold); margin-bottom:22px; text-transform:uppercase;
+  }
+  .hero h1{
+    font-family:var(--mono); font-weight:700;
+    font-size:clamp(2.6rem, 9vw, 6.4rem);
+    line-height:0.98; letter-spacing:-0.01em;
+    color:var(--paper);
+    max-width:14ch;
+  }
+  .hero .subhead{
+    margin-top:28px; max-width:46ch;
+    font-size:1.15rem; color:var(--line);
+    font-weight:400;
+  }
+  .hero .meta-row{
+    display:flex; flex-wrap:wrap; gap:2.5rem;
+    margin-top:52px;
+  }
+  .hero .meta-item{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em;
+    color:var(--line-dim); text-transform:uppercase;
+  }
+  .hero .meta-item b{ display:block; color:var(--line); font-size:0.95rem; margin-top:6px; letter-spacing:0.02em; }
+
+  .hero-scale{
+    position:absolute; right:5vw; bottom:60px;
+    font-family:var(--mono); font-size:0.7rem; color:var(--line-dim);
+    letter-spacing:0.1em; text-align:right;
+    display:flex; flex-direction:column; gap:4px;
+  }
+  @media (max-width:720px){ .hero-scale{ display:none; } }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{ margin-bottom:10px; }
+  .section-head h2{
+    font-family:var(--mono); font-weight:700;
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    color:var(--paper); letter-spacing:-0.01em;
+  }
+  .section-head p{
+    margin-top:14px; max-width:60ch; color:var(--line-dim); font-size:1rem;
+  }
+
+  /* ---------- PROJECT SHEETS ---------- */
+  .project{
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:2px;
+    margin-bottom:34px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(20,30,60,0.08);
+  }
+  .project-grid{
+    display:grid; grid-template-columns:1.1fr 1fr; gap:0;
+  }
+  .project.reverse .project-grid{ direction:rtl; }
+  .project.reverse .project-grid > *{ direction:ltr; }
+  @media (max-width:900px){ .project-grid{ grid-template-columns:1fr; } }
+
+  .project-media{
+    position:relative; background:var(--paper-dim);
+    min-height:280px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .project-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .project-media .tag{
+    position:absolute; top:16px; left:16px;
+    background:var(--safety); color:var(--paper);
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em;
+    padding:5px 10px; border-radius:2px; text-transform:uppercase;
+  }
+
+  .project-body{ padding:42px 44px; }
+  .project-num{
+    font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em;
+    color:var(--ink-dim); text-transform:uppercase; margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .project-num .sq{ width:7px; height:7px; background:var(--safety); display:inline-block; }
+  .project-body h3{
+    font-family:var(--mono); font-size:1.5rem; font-weight:700;
+    letter-spacing:-0.01em; margin-bottom:16px; line-height:1.2;
+  }
+  .project-body p{ color:var(--ink-dim); margin-bottom:14px; font-size:0.98rem; }
+  .project-body .specs{
+    display:flex; flex-wrap:wrap; gap:22px; margin:22px 0;
+    padding:18px 0; border-top:1px dashed rgba(20,30,60,0.2); border-bottom:1px dashed rgba(20,30,60,0.2);
+  }
+  .project-body .specs div{ font-family:var(--mono); font-size:0.7rem; color:var(--ink-dim); letter-spacing:0.06em; }
+  .project-body .specs div b{ display:block; color:var(--ink); font-size:1.05rem; font-family:var(--sans); margin-top:4px; }
+
+  /* ---------- ART GALLERY ---------- */
+  .art-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  @media (max-width:800px){ .art-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .art-grid{ grid-template-columns:1fr; } }
+  .art-card{
+    position:relative; aspect-ratio:1; border-radius:2px; overflow:hidden;
+    background:var(--paper-dim);
+  }
+  .art-card img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s; }
+  .art-card:hover img{ transform:scale(1.06); }
+  .art-card .label{
+    position:absolute; bottom:0; left:0; right:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.92), transparent);
+    color:var(--paper); font-family:var(--mono); font-size:0.72rem;
+    letter-spacing:0.1em; padding:34px 16px 14px; text-transform:uppercase;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:280px 1fr; gap:56px; align-items:start;
+  }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-photo{
+    width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px;
+    border:1px solid rgba(174,208,238,0.25);
+  }
+  .about-body p{ color:var(--line); font-size:1.05rem; margin-bottom:20px; max-width:60ch; }
+  .about-contacts{ display:flex; flex-wrap:wrap; gap:16px; margin-top:28px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.08em;
+    padding:13px 22px; border-radius:2px; text-transform:uppercase;
+    border:1px solid var(--line-dim); color:var(--paper);
+    transition:all 0.2s;
+  }
+  .btn:hover{ border-color:var(--gold); color:var(--gold); }
+  .btn.filled{ background:var(--gold); color:var(--blueprint-deep); border-color:var(--gold); font-weight:700; }
+  .btn.filled:hover{ background:var(--paper); color:#000; }
+
+  /* ---------- FOOTER / TITLE BLOCK ---------- */
+  footer{
+    border-top:1px solid rgba(174,208,238,0.2);
+    padding:36px 5vw 40px;
+  }
+  .title-block{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border:1px solid rgba(174,208,238,0.3);
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.06em;
+    color:var(--line-dim); text-transform:uppercase;
+  }
+  .title-block div{ padding:12px 16px; border-right:1px solid rgba(174,208,238,0.3); }
+  .title-block div:last-child{ border-right:none; }
+  .title-block b{ display:block; color:var(--line); font-size:0.85rem; margin-top:4px; text-transform:none; letter-spacing:0.02em; }
+  @media (max-width:700px){
+    .title-block{ grid-template-columns:1fr 1fr; }
+  }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body class="grid-bg">
+
+<nav>
+  <div class="nav-mark"><span class="dot"></span>A. ALDRICH — SHEET SET</div>
+  <div class="nav-links">
+    <a href="#work">Engineering</a>
+    <a href="#art">Art &amp; Design</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero sheet">
+  <span class="crop-tl"></span><span class="crop-tr"></span><span class="crop-bl"></span><span class="crop-br"></span>
+  <div class="sheet-label">Sheet <span>00</span> / 07 — Title Sheet</div>
+
+  <div class="eyebrow">Mechanical Engineering — University of California, Irvine</div>
+  <h1>Autumn<br>Aldrich</h1>
+  <p class="subhead">Designing, prototyping, and testing mechanical systems — from active aerodynamics on a Formula SAE race car to CAD-modeled armor with 42 moving joints.</p>
+
+  <div class="meta-row">
+    <div class="meta-item">Currently<b>FSAE Aero — DRS Lead</b></div>
+    <div class="meta-item">Tools<b>SolidWorks · Fusion 360 · STAR-CCM+</b></div>
+    <div class="meta-item">Based in<b>Irvine, CA</b></div>
+  </div>
+
+  <div class="hero-scale">
+    SCALE — NOT TO SCALE<br>
+    REV. 2026.07
+  </div>
+</section>
+
+<!-- ENGINEERING PROJECTS -->
+<section id="work" class="sheet">
+  <span class="crop-tl"></span><span class="crop-tr"></span><span class="crop-bl"></span><span class="crop-br"></span>
+  <div class="sheet-label">Sheet <span>01</span> / 07 — Engineering Projects</div>
+
+  <div class="section-head reveal">
+    <h2>Engineering Projects</h2>
+    <p>Five sheets, five systems — race car aerodynamics, composite tooling, autonomous robotics, and CAD builds pushed well past the class assignment.</p>
+  </div>
+
+  <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">01 — Active Aero</span><span class="rule"></span><span class="tick"></span></div>
+
+  <div class="project reveal">
+    <div class="project-grid">
+      <div class="project-media">
+        <span class="tag">In Progress</span>
+        <img src="https://static.wixstatic.com/media/685d3d_8f7efeb887254bedaf7aac4ad8b4f7c0~mv2.png/v1/crop/x_119,y_0,w_1168,h_1168/fill/w_600,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image%20(29).png" alt="CAD linkage geometry for the FSAE drag reduction system rear wing" loading="lazy">
+      </div>
+      <div class="project-body">
+        <div class="project-num"><span class="sq"></span>Project 01 — FSAE Aerodynamics</div>
+        <h3>Drag Reduction System (DRS)</h3>
+        <p>Leading research, design, and prototyping of a Drag Reduction System for the rear wing of UCI's Formula SAE Electric Racing Team — rotating the wing elements out of high-downforce mode on straightaways to cut drag.</p>
+        <p>The prototype targets the rear wing first, but lays the groundwork for active aero across the whole car, balancing downforce and drag through corners and straights.</p>
+        <div class="specs">
+          <div>Drag Reduction<b>80–90%</b></div>
+          <div>Linkage Material<b>1/4" 6061 Aluminum</b></div>
+          <div>FEA Safety Factor<b>1.77 – 2.30</b></div>
+        </div>
+        <p>CAD linkage geometry rotates the mid airfoil from 27.5° down to 2.5°, and the top foil from 55° to 2.5°. STAR-CCM+ simulations of high-drag vs. low-drag modes informed the target angles, and SolidWorks FEA (worst-case ~400N load) confirmed the linkages hold under max actuation force.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project reverse reveal">
+    <div class="project-grid">
+      <div class="project-media">
+        <img src="https://static.wixstatic.com/media/685d3d_521e0c2c41454a25ae64064aa6807fd4~mv2.jpeg/v1/crop/x_770,y_0,w_1980,h_1980/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20from%20iOS.jpeg" alt="Composite tooling and mold work for FSAE carbon fiber parts" loading="lazy">
+      </div>
+      <div class="project-body">
+        <div class="project-num"><span class="sq"></span>Project 02 — FSAE Composites</div>
+        <h3>Composites &amp; Tooling Design</h3>
+        <p>Took charge of leveling up Anteater Electric Racing's composites manufacturing — researching and documenting the resin infusion process end to end and running numerous infusion tests.</p>
+        <p>Built a versatile tooling design plan in Fusion 360 for producing the carbon fiber aerobody parts that make up the car's bodywork.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">02 — CAD &amp; Modeling</span><span class="rule"></span><span class="tick"></span></div>
+
+  <div class="project reveal">
+    <div class="project-grid">
+      <div class="project-media">
+        <img src="https://static.wixstatic.com/media/685d3d_0b727187e33d46a89ee5013feaa77e8c~mv2.jpg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ONE_OF_NINE_1%20(1)_edited.jpg" alt="Witch King of Angmar armor recreated in SolidWorks CAD" loading="lazy">
+      </div>
+      <div class="project-body">
+        <div class="project-num"><span class="sq"></span>Project 03 — MAE 52 Final</div>
+        <h3>Witch King Armor Project</h3>
+        <p>For UCI's MAE 52 (Computer-Aided Design), recreated the Witch King of Angmar's armor from The Lord of the Rings in SolidWorks — rebuilt to her own body proportions rather than a flat reference model.</p>
+        <div class="specs">
+          <div>Moving Joints<b>42 (ball &amp; hinge)</b></div>
+          <div>Distinct Parts<b>25</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project reverse reveal">
+    <div class="project-grid">
+      <div class="project-media">
+        <img src="https://static.wixstatic.com/media/685d3d_c7447f1645644d34a574f8dc0ddf0bf1~mv2.jpg/v1/crop/x_12,y_0,w_1147,h_1147/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2679_edited.jpg" alt="Autonomous line-following rover with claw mechanism" loading="lazy">
+      </div>
+      <div class="project-body">
+        <div class="project-num"><span class="sq"></span>Project 04 — ENGR 7B</div>
+        <h3>Autonomous Rover</h3>
+        <p>CAD Design Lead on a seven-person team building a color-tracking, line-following rover that picks up a can at the end of the track.</p>
+        <p>Designed the claw and lift mechanism plus a decorative "M-O" element (a nod to WALL-E), and helped integrate every subsystem onto the chassis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">03 — Robotics</span><span class="rule"></span><span class="tick"></span></div>
+
+  <div class="project reveal">
+    <div class="project-grid">
+      <div class="project-media">
+        <img src="https://static.wixstatic.com/media/685d3d_c77730dc64454d509cb294018d41d27d~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_5344.jpeg" alt="Award-winning VEX robotics competition robot" loading="lazy">
+      </div>
+      <div class="project-body">
+        <div class="project-num"><span class="sq"></span>Project 05 — VEX Robotics</div>
+        <h3>VEX Robot '23–'24</h3>
+        <p>In her final year of VEX Robotics in high school, designed and built multiple components on the team's award-winning robot — the capstone of years spent on the team since middle school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ART & DESIGN -->
+<section id="art" class="sheet">
+  <span class="crop-tl"></span><span class="crop-tr"></span><span class="crop-bl"></span><span class="crop-br"></span>
+  <div class="sheet-label">Sheet <span>02</span> / 07 — Art &amp; Design</div>
+
+  <div class="section-head reveal">
+    <h2>Art &amp; Design</h2>
+    <p>The sketchbook side of the sheet set — smaller builds, graphics, and hands-on making outside of racing and coursework.</p>
+  </div>
+
+  <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Gallery</span><span class="rule"></span><span class="tick"></span></div>
+
+  <div class="art-grid reveal">
+    <div class="art-card">
+      <img src="https://static.wixstatic.com/media/685d3d_7094c5599c5340d4878a16efed715cb9~mv2.jpeg/v1/crop/x_0,y_504,w_3024,h_3024/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2098.jpeg" alt="Handbuilt Tetris-piece lamp" loading="lazy">
+      <div class="label">Tetris Lamp</div>
+    </div>
+    <div class="art-card">
+      <img src="https://static.wixstatic.com/media/685d3d_c7e2b92c2b8c4d198f24919383b97888~mv2.jpeg/v1/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9EFB3E2D-7A84-4291-92CC-FD85FF75157C.jpeg" alt="Bullet journal spread design" loading="lazy">
+      <div class="label">Bullet Journal</div>
+    </div>
+    <div class="art-card">
+      <img src="https://static.wixstatic.com/media/685d3d_0e9866e455f04510954c512d91e04e96~mv2.jpg/v1/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AER_winter_apps_post.jpg" alt="FSAE team graphics design" loading="lazy">
+      <div class="label">FSAE Graphics</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sheet">
+  <span class="crop-tl"></span><span class="crop-tr"></span><span class="crop-bl"></span><span class="crop-br"></span>
+  <div class="sheet-label">Sheet <span>03</span> / 07 — About</div>
+
+  <div class="section-head reveal">
+    <h2>About</h2>
+  </div>
+
+  <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Drafter's Notes</span><span class="rule"></span><span class="tick"></span></div>
+
+  <div class="about-grid reveal">
+    <img class="about-photo" src="https://static.wixstatic.com/media/685d3d_52439e3271cc4e79be87adb30ff14a63~mv2.jpeg/v1/crop/x_0,y_356,w_3015,h_3676/fill/w_500,h_625,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_3417.jpeg" alt="Autumn Aldrich" loading="lazy">
+    <div class="about-body">
+      <p>Hi, I'm Autumn — a Mechanical Engineering student at UC Irvine. I've been building things since middle school VEX Robotics, and that early hands-on start turned into a deep, lasting interest in engineering.</p>
+      <p>Right now I'm on the aerodynamics sub-team of UCI's FSAE Electric Racing squad, leading the design and manufacturing of our active drag reduction system. Outside of racing, I split my time between CAD, composites, and smaller design builds — from armor to lamps.</p>
+      <div class="about-contacts">
+        <a class="btn" href="mailto:aldricha@uci.edu">Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="title-block">
+    <div>Drafter<b>Autumn Aldrich</b></div>
+    <div>Discipline<b>Mechanical Engineering</b></div>
+    <div>Institution<b>UC Irvine</b></div>
+    <div>Revision<b>2026 — Sheet Set v1</b></div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
