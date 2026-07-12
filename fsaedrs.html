@@ -319,8 +319,8 @@
   margin-bottom:18px;
 }
 .detail-title{
-  font-family:var(--sans); font-size:clamp(2rem, 5vw, 3.4rem); font-weight:800;
-  letter-spacing:0.03em; line-height:1.1; text-transform:uppercase; color:var(--paper);
+  font-family:var(--sans); font-size:clamp(1.8rem, 4.5vw, 3rem); font-weight:800;
+  letter-spacing:0.05em; line-height:1.15; text-transform:uppercase; color:var(--paper);
   margin-bottom:18px;
 }
 .detail-sub{
@@ -329,7 +329,7 @@
 }
 .detail-media{
   width:100%; border-radius:2px; overflow:hidden;
-  border:1px solid rgba(174,208,238,0.25); margin-bottom:44px;
+  margin-bottom:44px;
 }
 .detail-media img{ width:100%; height:auto; display:block; }
 .detail-gallery{
@@ -346,12 +346,17 @@
 .detail-specs div b{ display:block; color:var(--paper); font-size:1.05rem; font-family:var(--sans); margin-top:4px; text-transform:none; }
 
 .detail-section{ margin:64px 0 0; }
-.detail-section .dim-divider{ margin:0 0 32px; }
 .detail-section h4{
   font-family:var(--sans); font-size:1.1rem; font-weight:700;
   letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
   margin-bottom:18px;
 }
+.detail-overview-grid{
+  display:grid; grid-template-columns:1fr 1.15fr; gap:52px; align-items:center;
+  margin-bottom:20px;
+}
+@media (max-width:800px){ .detail-overview-grid{ grid-template-columns:1fr; } }
+.detail-overview-grid .detail-media{ margin-bottom:0; }
 .detail-caption{
   font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em;
   color:var(--line-dim); margin-bottom:24px; max-width:70ch;
@@ -363,8 +368,7 @@
 .img-row figure, .detail-media figure{ margin:0; }
 .img-row img{
   width:100%; height:100%; object-fit:cover; border-radius:2px;
-  border:1px solid rgba(174,208,238,0.25); display:block;
-  background:var(--paper);
+  display:block; background:var(--paper);
 }
 .img-row figcaption{
   font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em;
@@ -392,31 +396,32 @@
 
 <nav>
   <div class="nav-links">
-    <a href="index.html#work">Engineering</a>
-    <a href="index.html#art">Art &amp; Design</a>
-    <a href="index.html#about">About</a>
+    <a href="./#work">Engineering</a>
+    <a href="./#art">Art &amp; Design</a>
+    <a href="./#about">About</a>
     <a href="https://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </nav>
 
 <section class="sheet detail-hero">
-  <a class="back-link" href="index.html#work">← Back to Engineering Projects</a>
+  <a class="back-link" href="./#work">← Back to Engineering Projects</a>
   <h1 class="detail-title">Drag Reduction System (DRS)</h1>
   <div class="detail-sub">FSAE Aerodynamics — UCI Formula SAE Electric Racing</div>
 
-  <div class="detail-media">
-    <img src="website_photos/fsaedrs/prototype_movement.gif" alt="DRS mechanism actuating on the rear wing">
-  </div>
-
-  <div class="detail-body">
-    <h4>Project Overview</h4>
-    <p>I am currently leading the research, design, and prototyping of a Drag Reduction System (DRS) for the rear wing of UCI's Formula SAE Electric Racing Team.</p>
-    <p>While the current prototype is focused on the rear wing, the broader objective of this project is to establish a foundation for the future integration of active aerodynamic systems across the entire car. This active aero will allow us to optimize the balance between downforce and drag when racing on straightaways and tight turns.</p>
+  <div class="detail-overview-grid">
+    <div class="detail-media">
+      <img src="website_photos/fsaedrs/prototype_movement.gif" alt="DRS mechanism actuating on the rear wing">
+    </div>
+    <div class="detail-body">
+      <h4>Project Overview</h4>
+      <p>I am currently leading the research, design, and prototyping of a Drag Reduction System (DRS) for the rear wing of UCI's Formula SAE Electric Racing Team.</p>
+      <p>While the current prototype is focused on the rear wing, the broader objective of this project is to establish a foundation for the future integration of active aerodynamic systems across the entire car. This active aero will allow us to optimize the balance between downforce and drag when racing on straightaways and tight turns.</p>
+    </div>
   </div>
 
   <!-- PROTOTYPE -->
   <div class="detail-section">
-    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Prototype In Progress</span><span class="rule"></span><span class="tick"></span></div>
+    <h4>Prototype In Progress</h4>
     <div class="img-row">
       <figure>
         <img src="website_photos/fsaedrs/DRS_up.png" alt="DRS prototype mounted on rear wing, high-downforce position">
@@ -431,7 +436,7 @@
 
   <!-- LINKAGES -->
   <div class="detail-section">
-    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Linkages</span><span class="rule"></span><span class="tick"></span></div>
+    <h4>Linkages</h4>
     <p class="detail-caption">Goal: CAD linkage geometry that rotates the middle airfoil from its original angle of attack (27.5°) down to 2.5°, and the top foil from 55° down to 2.5°.</p>
     <div class="img-row">
       <figure>
@@ -450,7 +455,7 @@
 
   <!-- SIMULATIONS -->
   <div class="detail-section">
-    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Simulations</span><span class="rule"></span><span class="tick"></span></div>
+    <h4>Simulations</h4>
     <p>To estimate the downforce vs. drag benefits of implementing DRS, our Aerodynamics Simulations team ran two STAR-CCM+ simulations of our rear wing: one in high-drag mode and one in low-drag mode (DRS unactivated vs. activated).</p>
     <p>Based on the downforce and drag numbers we received, implementing DRS allows us to achieve an estimated <b style="color:var(--gold)">80–90% decrease in drag</b>.</p>
     <div class="img-row">
@@ -467,7 +472,7 @@
 
   <!-- FEA -->
   <div class="detail-section">
-    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Finite Element Analysis</span><span class="rule"></span><span class="tick"></span></div>
+    <h4>Finite Element Analysis</h4>
     <p>To test the strength of the linkages, I ran simulations in SolidWorks assuming 1/4" aluminum (6061 alloy). Using the downforce numbers from our simulations and the maximum stall force of the piston, I used ~400N as a worst-case scenario force.</p>
     <p>As shown below, the linkages do not deform under the maximum load, taking into account our estimated top speeds plus actuation force.</p>
     <div class="img-row">
