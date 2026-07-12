@@ -345,6 +345,47 @@
 .detail-specs div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
 .detail-specs div b{ display:block; color:var(--paper); font-size:1.05rem; font-family:var(--sans); margin-top:4px; text-transform:none; }
 
+.detail-section{ margin:64px 0 0; }
+.detail-section .dim-divider{ margin:0 0 32px; }
+.detail-section h4{
+  font-family:var(--sans); font-size:1.1rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
+  margin-bottom:18px;
+}
+.detail-caption{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em;
+  color:var(--line-dim); margin-bottom:24px; max-width:70ch;
+}
+.img-row{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0;
+}
+@media (max-width:700px){ .img-row{ grid-template-columns:1fr; } }
+.img-row figure, .detail-media figure{ margin:0; }
+.img-row img{
+  width:100%; height:100%; object-fit:cover; border-radius:2px;
+  border:1px solid rgba(174,208,238,0.25); display:block;
+  background:var(--paper);
+}
+.img-row figcaption{
+  font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em;
+  color:var(--line-dim); text-transform:uppercase; margin-top:10px;
+}
+.stat-row{
+  display:flex; flex-wrap:wrap; gap:28px; margin:30px 0;
+  padding:22px 0; border-top:1px dashed rgba(174,208,238,0.2); border-bottom:1px dashed rgba(174,208,238,0.2);
+}
+.stat-row div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
+.stat-row div b{ display:block; color:var(--gold); font-size:1.3rem; font-family:var(--sans); margin-top:4px; }
+.fallback-list{ margin:18px 0 0 0; padding-left:0; list-style:none; }
+.fallback-list li{
+  color:var(--line); font-size:1.02rem; font-weight:300; margin-bottom:12px;
+  padding-left:24px; position:relative;
+}
+.fallback-list li::before{
+  content:''; position:absolute; left:0; top:9px; width:8px; height:8px;
+  background:var(--safety);
+}
+
 </style>
 </head>
 <body>
@@ -360,29 +401,98 @@
 
 <section class="sheet detail-hero">
   <a class="back-link" href="index.html#work">← Back to Engineering Projects</a>
-  <span class="detail-tag">In Progress</span>
   <h1 class="detail-title">Drag Reduction System (DRS)</h1>
   <div class="detail-sub">FSAE Aerodynamics — UCI Formula SAE Electric Racing</div>
 
   <div class="detail-media">
-    <img src="https://static.wixstatic.com/media/685d3d_8f7efeb887254bedaf7aac4ad8b4f7c0~mv2.png/v1/crop/x_119,y_0,w_1168,h_1168/fill/w_1200,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/image%20(29).png" alt="CAD linkage geometry for the FSAE drag reduction system rear wing">
+    <img src="website_photos/fsaedrs/AVAssetExportPreset1920x1080-ezgif_com-video-to-gif-converter.gif" alt="DRS mechanism actuating on the rear wing">
   </div>
 
   <div class="detail-body">
-    <p>Leading the research, design, and prototyping of a pneumatic Drag Reduction System for the rear wing of UCI's Formula SAE Electric Racing Team — rotating the wing elements out of high-downforce mode on straightaways to cut drag.</p>
-    <p>While the current prototype is focused on the rear wing, the broader objective of the project is to establish a foundation for active aerodynamic systems across the entire car, balancing downforce and drag through corners and straights.</p>
-    <p>The CAD linkage geometry rotates the mid airfoil from 27.5° down to 2.5°, and the top foil from 55° down to 2.5°. STAR-CCM+ simulations of high-drag versus low-drag modes informed the target angles, and SolidWorks FEA — evaluated against a worst-case ~400N load — confirmed the linkages hold under maximum actuation force.</p>
+    <h4>Project Overview</h4>
+    <p>I am currently leading the research, design, and prototyping of a Drag Reduction System (DRS) for the rear wing of UCI's Formula SAE Electric Racing Team.</p>
+    <p>While the current prototype is focused on the rear wing, the broader objective of this project is to establish a foundation for the future integration of active aerodynamic systems across the entire car. This active aero will allow us to optimize the balance between downforce and drag when racing on straightaways and tight turns.</p>
+  </div>
 
-    <div class="detail-specs">
-      <div>Team<b>UCI FSAE Electric Racing</b></div>
-      <div>Tools<b>SolidWorks, STAR-CCM+</b></div>
-      <div>Focus<b>Active Aerodynamics</b></div>
+  <!-- PROTOTYPE -->
+  <div class="detail-section">
+    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Prototype In Progress</span><span class="rule"></span><span class="tick"></span></div>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_up.png" alt="DRS prototype mounted on rear wing, high-downforce position">
+        <figcaption>High-downforce position</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_down.png" alt="DRS prototype mounted on rear wing, DRS-activated low-drag position">
+        <figcaption>DRS activated — low-drag position</figcaption>
+      </figure>
     </div>
   </div>
 
-  <div class="detail-gallery">
-    <img src="https://static.wixstatic.com/media/685d3d_521e0c2c41454a25ae64064aa6807fd4~mv2.jpeg/v1/crop/x_770,y_0,w_1980,h_1980/fill/w_700,h_700,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20from%20iOS.jpeg" alt="Composite tooling and mold work related to the FSAE aero package">
+  <!-- LINKAGES -->
+  <div class="detail-section">
+    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Linkages</span><span class="rule"></span><span class="tick"></span></div>
+    <p class="detail-caption">Goal: CAD linkage geometry that rotates the middle airfoil from its original angle of attack (27.5°) down to 2.5°, and the top foil from 55° down to 2.5°.</p>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_up_side.png" alt="Linkage geometry, high-downforce position, side view">
+        <figcaption>Linkage geometry — high-downforce</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_down_side.png" alt="Linkage geometry, DRS-activated position, side view">
+        <figcaption>Linkage geometry — DRS activated</figcaption>
+      </figure>
+    </div>
+    <div class="detail-media" style="margin-top:20px;">
+      <img src="website_photos/fsaedrs/DRS_linkage_animation.gif" alt="Animation of the DRS linkage rotating between positions">
+    </div>
   </div>
+
+  <!-- SIMULATIONS -->
+  <div class="detail-section">
+    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Simulations</span><span class="rule"></span><span class="tick"></span></div>
+    <p>To estimate the downforce vs. drag benefits of implementing DRS, our Aerodynamics Simulations team ran two STAR-CCM+ simulations of our rear wing: one in high-drag mode and one in low-drag mode (DRS unactivated vs. activated).</p>
+    <p>Based on the downforce and drag numbers we received, implementing DRS allows us to achieve an estimated <b style="color:var(--gold)">80–90% decrease in drag</b>.</p>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_sim_up.PNG" alt="STAR-CCM+ streamline simulation, high-drag mode">
+        <figcaption>High-drag mode (DRS off)</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaedrs/DRS_sim_down.PNG" alt="STAR-CCM+ streamline simulation, low-drag mode">
+        <figcaption>Low-drag mode (DRS activated)</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- FEA -->
+  <div class="detail-section">
+    <div class="dim-divider"><span class="tick"></span><span class="rule"></span><span class="label">Finite Element Analysis</span><span class="rule"></span><span class="tick"></span></div>
+    <p>To test the strength of the linkages, I ran simulations in SolidWorks assuming 1/4" aluminum (6061 alloy). Using the downforce numbers from our simulations and the maximum stall force of the piston, I used ~400N as a worst-case scenario force.</p>
+    <p>As shown below, the linkages do not deform under the maximum load, taking into account our estimated top speeds plus actuation force.</p>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaedrs/linkage1_stress.png" alt="Von Mises stress plot, linkage 1">
+        <figcaption>Linkage 1 — von Mises stress</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaedrs/linkage2_stress.png" alt="Von Mises stress plot, linkage 2">
+        <figcaption>Linkage 2 — von Mises stress</figcaption>
+      </figure>
+    </div>
+    <div class="stat-row">
+      <div>Linkage 1 Safety Factor<b>1.769</b></div>
+      <div>Linkage 2 Safety Factor<b>2.299</b></div>
+      <div>Material<b>1/4" 6061 Aluminum</b></div>
+      <div>Design Load<b>~400 N</b></div>
+    </div>
+    <p>While the 1.769 safety factor on Linkage 1 is lower than expected, we still plan to use 1/4" aluminum for the prototype. If this linkage fails in testing, we have two fall-back options:</p>
+    <ul class="fallback-list">
+      <li>Mount two of the same linkage on either side of the piston (requires machining two of the top linkage as well).</li>
+      <li>Switch to a low-carbon steel — the safety factor would rise to roughly 10, at the cost of added weight.</li>
+    </ul>
+  </div>
+
 </section>
 
 </body>
