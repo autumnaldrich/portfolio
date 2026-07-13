@@ -304,7 +304,7 @@
 
 /* ---------- PROJECT DETAIL PAGE ---------- */
 .detail-hero{
-  position:relative; padding-top:150px; padding-bottom:20px;
+  position:relative; padding-top:150px; padding-bottom:140px;
 }
 .back-link{
   display:inline-flex; align-items:center; gap:8px;
@@ -319,8 +319,8 @@
   margin-bottom:18px;
 }
 .detail-title{
-  font-family:var(--sans); font-size:clamp(2rem, 5vw, 3.4rem); font-weight:800;
-  letter-spacing:0.03em; line-height:1.1; text-transform:uppercase; color:var(--paper);
+  font-family:var(--sans); font-size:clamp(1.8rem, 4.5vw, 3rem); font-weight:800;
+  letter-spacing:0.08em; line-height:1.15; text-transform:uppercase; color:var(--paper);
   margin-bottom:18px;
 }
 .detail-sub{
@@ -329,7 +329,7 @@
 }
 .detail-media{
   width:100%; border-radius:2px; overflow:hidden;
-  border:1px solid rgba(174,208,238,0.25); margin-bottom:44px;
+  margin-bottom:44px;
 }
 .detail-media img{ width:100%; height:auto; display:block; }
 .detail-gallery{
@@ -345,38 +345,154 @@
 .detail-specs div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
 .detail-specs div b{ display:block; color:var(--paper); font-size:1.05rem; font-family:var(--sans); margin-top:4px; text-transform:none; }
 
+.detail-section{ margin:64px 0 0; }
+.detail-section h4, .detail-body h4{
+  font-family:var(--sans); font-size:1.1rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
+  margin-bottom:18px;
+}
+.detail-overview-grid{
+  display:grid; grid-template-columns:1fr 1.15fr; gap:52px; align-items:center;
+  margin-bottom:20px;
+}
+@media (max-width:800px){ .detail-overview-grid{ grid-template-columns:1fr; } }
+.detail-overview-grid .detail-media{ margin-bottom:0; }
+.detail-caption{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em;
+  color:var(--line-dim); margin-bottom:24px; max-width:70ch;
+}
+.img-row{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0;
+}
+@media (max-width:700px){ .img-row{ grid-template-columns:1fr; } }
+.img-row.three{ grid-template-columns:1fr 1fr 1fr; }
+@media (max-width:900px){ .img-row.three{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .img-row.three{ grid-template-columns:1fr; } }
+.img-row figure, .detail-media figure{ margin:0; }
+.img-row img{
+  width:100%; height:100%; object-fit:cover; border-radius:2px;
+  display:block; background:var(--paper);
+}
+.img-row figcaption{
+  font-family:var(--mono); font-size:0.82rem; letter-spacing:0.06em;
+  color:var(--line-dim); text-transform:uppercase; margin-top:10px;
+  text-align:center;
+}
+.stat-row{
+  display:flex; flex-wrap:wrap; gap:28px; margin:30px 0;
+  padding:22px 0; border-top:1px dashed rgba(174,208,238,0.2); border-bottom:1px dashed rgba(174,208,238,0.2);
+}
+.stat-row div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
+.stat-row div b{ display:block; color:var(--gold); font-size:1.3rem; font-family:var(--sans); margin-top:4px; }
+.fallback-list{ margin:18px 0 0 0; padding-left:0; list-style:none; }
+.fallback-list li{
+  color:var(--line); font-size:1.02rem; font-weight:300; margin-bottom:12px;
+  padding-left:24px; position:relative;
+}
+.fallback-list li::before{
+  content:''; position:absolute; left:0; top:9px; width:8px; height:8px;
+  background:var(--safety);
+}
+
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-links">
-    <a href="index.html#work">Engineering</a>
-    <a href="index.html#art">Art &amp; Design</a>
-    <a href="index.html#about">About</a>
+    <a href="./#work">Engineering</a>
+    <a href="./#art">Art &amp; Design</a>
+    <a href="./#about">About</a>
     <a href="https://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </nav>
 
 <section class="sheet detail-hero">
-  <a class="back-link" href="index.html#work">← Back to Engineering Projects</a>
+  <a class="back-link" href="./#work">← Back to Engineering Projects</a>
   <h1 class="detail-title">Composites &amp; Tooling Design</h1>
   <div class="detail-sub">FSAE Composites — UCI Anteater Electric Racing</div>
 
-  <div class="detail-media">
-    <img src="https://static.wixstatic.com/media/685d3d_521e0c2c41454a25ae64064aa6807fd4~mv2.jpeg/v1/crop/x_770,y_0,w_1980,h_1980/fill/w_1200,h_1200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20from%20iOS.jpeg" alt="Composite tooling and mold work for FSAE carbon fiber parts">
-  </div>
+  <div class="detail-overview-grid">
+    <div class="detail-media">
+      <img src="https://static.wixstatic.com/media/685d3d_521e0c2c41454a25ae64064aa6807fd4~mv2.jpeg/v1/crop/x_770,y_0,w_1980,h_1980/fill/w_1200,h_1200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image%20from%20iOS.jpeg" alt="Composite tooling and mold work for FSAE carbon fiber parts">
+    </div>
+    <div class="detail-body">
+      <h4>Project Overview</h4>
+      <p>Took charge of leveling up Anteater Electric Racing's composites manufacturing — researching and documenting the resin infusion process end to end and running numerous infusion tests to refine the workflow.</p>
+      <p>Built a versatile tooling design plan in Fusion 360 for producing the carbon fiber aerobody parts that make up the car's bodywork, laying groundwork the team can reuse across future seasons.</p>
 
-  <div class="detail-body">
-    <p>Took charge of leveling up Anteater Electric Racing's composites manufacturing — researching and documenting the resin infusion process end to end and running numerous infusion tests to refine the workflow.</p>
-    <p>Built a versatile tooling design plan in Fusion 360 for producing the carbon fiber aerobody parts that make up the car's bodywork, laying groundwork the team can reuse across future seasons.</p>
-
-    <div class="detail-specs">
-      <div>Team<b>Anteater Electric Racing</b></div>
-      <div>Tools<b>Fusion 360</b></div>
-      <div>Focus<b>Composites &amp; Tooling</b></div>
+      <div class="detail-specs">
+        <div>Team<b>Anteater Electric Racing</b></div>
+        <div>Tools<b>Fusion 360</b></div>
+        <div>Focus<b>Composites &amp; Tooling</b></div>
+      </div>
     </div>
   </div>
+
+  <!-- TOOLING DESIGN -->
+  <div class="detail-section">
+    <h4>Tooling Design in Fusion 360</h4>
+    <p>Designed the mold and part geometry in Fusion 360 as part of a versatile tooling plan for producing the carbon fiber aerobody parts that make up the car's bodywork.</p>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaemolds/part_1_cad.png" alt="Fusion 360 CAD model of an aerobody part">
+        <figcaption>Aerobody part — CAD model</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaemolds/part_2_cad.png" alt="Fusion 360 CAD model of a second aerobody part">
+        <figcaption>Aerobody part — CAD model</figcaption>
+      </figure>
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaemolds/tool_1_cad.png" alt="Fusion 360 CAD model of the mold tooling">
+        <figcaption>Mold tooling — CAD model</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaemolds/tool_2_cad.png" alt="Fusion 360 CAD model of a second mold tool">
+        <figcaption>Mold tooling — CAD model</figcaption>
+      </figure>
+    </div>
+    <div class="detail-media" style="margin-top:16px;">
+      <img src="website_photos/fsaemolds/mold_cad.jpeg" alt="Fusion 360 CAD render of a completed mold">
+    </div>
+  </div>
+
+  <!-- CNC MACHINING -->
+  <div class="detail-section">
+    <h4>CNC Machining</h4>
+    <p>Programmed toolpaths and machined the molds on the shop's CNC router, working from the Fusion 360 tooling geometry.</p>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaemolds/toolpath_sim.jpeg" alt="Simulated CNC toolpath for machining the mold surface">
+        <figcaption>Toolpath simulation</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaemolds/cnc_routing.jpeg" alt="CNC router cutting a mold on the shop floor">
+        <figcaption>Machining the mold</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- RESIN INFUSION -->
+  <div class="detail-section">
+    <h4>Resin Infusion</h4>
+    <p>Researched and documented the resin infusion process end to end, running numerous infusion tests to refine the workflow.</p>
+    <div class="detail-media">
+      <img src="website_photos/fsaemolds/infusion_bagging.jpg" alt="Vacuum bagging setup for a resin infusion test">
+    </div>
+    <div class="img-row">
+      <figure>
+        <img src="website_photos/fsaemolds/infusion_panel_1.png" alt="Finished carbon fiber panel from a resin infusion test">
+        <figcaption>Infused carbon fiber panel</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/fsaemolds/infusion_panel_2.jpg" alt="Finished carbon fiber panel with checkered weave from a resin infusion test">
+        <figcaption>Infused carbon fiber panel</figcaption>
+      </figure>
+    </div>
+  </div>
+
 </section>
 
 </body>
