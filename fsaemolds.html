@@ -412,6 +412,22 @@
   color:var(--gold); text-transform:uppercase; margin:22px 0 10px; display:block;
 }
 
+/* grouped photo blocks — CSS-only, no new image files */
+.photo-block{
+  display:grid; gap:18px; background:#000; padding:18px; border-radius:2px; margin:24px 0;
+}
+.photo-block.grid-2x2{ grid-template-columns:1fr 1fr; }
+@media (max-width:600px){ .photo-block.grid-2x2{ grid-template-columns:1fr; } }
+.photo-block.stack{ grid-template-columns:1fr; }
+.photo-block img{ width:100%; height:100%; display:block; object-fit:contain; background:var(--paper-dim); }
+.cinematic{
+  position:relative; overflow:hidden; background:#000;
+  aspect-ratio:21/9; margin:24px 0; border-radius:2px;
+}
+.cinematic img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
 </style>
 </head>
 <body>
@@ -481,14 +497,18 @@
       </li>
       <li>Helped develop an efficient toolpath in Fusion CAM for 3-axis CNC router</li>
     </ul>
-    <div class="detail-media" style="margin-top:8px;">
-      <img src="website_photos/fsaemolds/collage_parts_tools.jpg" alt="Fusion 360 CAD models of the aerobody parts and their mold tooling">
+    <div class="photo-block grid-2x2">
+      <img src="website_photos/fsaemolds/part_1.png" alt="Fusion 360 CAD model of an aerobody part">
+      <img src="website_photos/fsaemolds/part_2.png" alt="Fusion 360 CAD model of a second aerobody part">
+      <img src="website_photos/fsaemolds/tool_1.png" alt="Fusion 360 CAD model of the mold tooling">
+      <img src="website_photos/fsaemolds/tool_2.png" alt="Fusion 360 CAD model of a second mold tool">
     </div>
-    <div class="detail-media" style="margin-top:16px;">
-      <img src="website_photos/fsaemolds/collage_mold_toolpath.jpg" alt="Fusion 360 CAD render of the test mold and simulated CNC toolpath">
+    <div class="photo-block stack">
+      <img src="website_photos/fsaemolds/panel_2_cad.jpeg" alt="Fusion 360 CAD render of the test mold">
+      <img src="website_photos/fsaemolds/toolpath.jpeg" alt="Simulated CNC toolpath for machining the mold surface">
     </div>
-    <div class="detail-media" style="margin-top:16px;">
-      <img src="website_photos/fsaemolds/collage_cnc_letterbox.jpg" alt="CNC router machining the mold on the shop floor">
+    <div class="cinematic">
+      <img src="website_photos/fsaemolds/cncrouting.jpeg" alt="CNC router machining the mold on the shop floor" style="object-position:center 65%;">
     </div>
 
     <span class="results-label">Results</span>
