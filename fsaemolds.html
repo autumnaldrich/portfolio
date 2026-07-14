@@ -419,7 +419,7 @@
 .photo-block.grid-2x2{ grid-template-columns:1fr 1fr; }
 @media (max-width:600px){ .photo-block.grid-2x2{ grid-template-columns:1fr; } }
 .photo-block.stack{ grid-template-columns:1fr; }
-.photo-block img{ width:100%; height:100%; display:block; object-fit:contain; background:var(--paper-dim); }
+.photo-block img{ width:100%; height:100%; display:block; object-fit:contain; background:#fff; }
 .cinematic{
   position:relative; overflow:hidden; background:#000;
   aspect-ratio:21/9; margin:24px 0; border-radius:2px;
@@ -427,6 +427,11 @@
 .cinematic img{
   width:100%; height:100%; object-fit:cover; display:block;
 }
+.results-pair{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin:24px 0;
+}
+.results-pair .photo-block{ margin:0; }
+@media (max-width:800px){ .results-pair{ grid-template-columns:1fr; } }
 
 </style>
 </head>
@@ -503,36 +508,38 @@
       <img src="website_photos/fsaemolds/tool_1.png" alt="Fusion 360 CAD model of the mold tooling">
       <img src="website_photos/fsaemolds/tool_2.png" alt="Fusion 360 CAD model of a second mold tool">
     </div>
-    <div class="photo-block stack">
-      <img src="website_photos/fsaemolds/panel_2_cad.jpeg" alt="Fusion 360 CAD render of the test mold">
-      <img src="website_photos/fsaemolds/toolpath.jpeg" alt="Simulated CNC toolpath for machining the mold surface">
-    </div>
-    <div class="cinematic">
-      <img src="website_photos/fsaemolds/cncrouting.jpeg" alt="CNC router machining the mold on the shop floor" style="object-position:center 65%;">
-    </div>
 
-    <span class="results-label">Results</span>
-    <ol style="color:var(--line); font-size:1.02rem; font-weight:300; padding-left:22px; margin-bottom:0;">
-      <li style="margin-bottom:16px;">
-        <b style="color:var(--paper); font-weight:600;">End of Part Method</b>
-        <ul class="sub-list" style="margin-top:6px;">
-          <li>Achieved a clear line along which to trim the part</li>
-        </ul>
-      </li>
-      <li style="margin-bottom:16px;">
-        <b style="color:var(--paper); font-weight:600;">Mold Manufacturing and Prep</b>
-        <ul class="sub-list" style="margin-top:6px;">
-          <li>Successfully machined part with 3-axis CNC router</li>
-          <li>No resin infused in the foam – proper mold sealant and prep achieved</li>
-        </ul>
-      </li>
-      <li>
-        <b style="color:var(--paper); font-weight:600;">Infusion Test</b>
-        <ul class="sub-list" style="margin-top:6px;">
-          <li>Made progress on infusion, going from flat parts to parts with contours</li>
-        </ul>
-      </li>
-    </ol>
+    <div class="results-pair">
+      <div class="photo-block stack">
+        <img src="website_photos/fsaemolds/panel_2_cad.jpeg" alt="Fusion 360 CAD render of the test mold">
+        <img src="website_photos/fsaemolds/toolpath.jpeg" alt="Simulated CNC toolpath for machining the mold surface">
+        <img src="website_photos/fsaemolds/cncrouting.jpeg" alt="CNC router machining the mold on the shop floor">
+      </div>
+      <div>
+        <span class="results-label" style="margin-top:0;">Results</span>
+        <ol style="color:var(--line); font-size:1.02rem; font-weight:300; padding-left:22px; margin-bottom:0;">
+          <li style="margin-bottom:16px;">
+            <b style="color:var(--paper); font-weight:600;">End of Part Method</b>
+            <ul class="sub-list" style="margin-top:6px;">
+              <li>Achieved a clear line along which to trim the part</li>
+            </ul>
+          </li>
+          <li style="margin-bottom:16px;">
+            <b style="color:var(--paper); font-weight:600;">Mold Manufacturing and Prep</b>
+            <ul class="sub-list" style="margin-top:6px;">
+              <li>Successfully machined part with 3-axis CNC router</li>
+              <li>No resin infused in the foam – proper mold sealant and prep achieved</li>
+            </ul>
+          </li>
+          <li>
+            <b style="color:var(--paper); font-weight:600;">Infusion Test</b>
+            <ul class="sub-list" style="margin-top:6px;">
+              <li>Made progress on infusion, going from flat parts to parts with contours</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
   </div>
 
 </section>
