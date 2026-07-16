@@ -304,7 +304,7 @@
 
 /* ---------- PROJECT DETAIL PAGE ---------- */
 .detail-hero{
-  position:relative; padding-top:150px; padding-bottom:20px;
+  position:relative; padding-top:150px; padding-bottom:140px;
 }
 .back-link{
   display:inline-flex; align-items:center; gap:8px;
@@ -319,8 +319,8 @@
   margin-bottom:18px;
 }
 .detail-title{
-  font-family:var(--sans); font-size:clamp(2rem, 5vw, 3.4rem); font-weight:800;
-  letter-spacing:0.03em; line-height:1.1; text-transform:uppercase; color:var(--paper);
+  font-family:var(--sans); font-size:clamp(1.8rem, 4.5vw, 3rem); font-weight:800;
+  letter-spacing:0.08em; line-height:1.15; text-transform:uppercase; color:var(--paper);
   margin-bottom:18px;
 }
 .detail-sub{
@@ -329,7 +329,7 @@
 }
 .detail-media{
   width:100%; border-radius:2px; overflow:hidden;
-  border:1px solid rgba(174,208,238,0.25); margin-bottom:44px;
+  margin-bottom:44px;
 }
 .detail-media img{ width:100%; height:auto; display:block; }
 .detail-gallery{
@@ -345,43 +345,182 @@
 .detail-specs div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
 .detail-specs div b{ display:block; color:var(--paper); font-size:1.05rem; font-family:var(--sans); margin-top:4px; text-transform:none; }
 
+.detail-section{ margin:64px 0 0; }
+.detail-section h4, .detail-body h4{
+  font-family:var(--sans); font-size:1.1rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
+  margin-bottom:18px;
+}
+.detail-overview-grid{
+  display:grid; grid-template-columns:1fr 1.15fr; gap:52px; align-items:center;
+  margin-bottom:20px;
+}
+@media (max-width:800px){ .detail-overview-grid{ grid-template-columns:1fr; } }
+.detail-overview-grid .detail-media{ margin-bottom:0; }
+.detail-caption{
+  font-family:var(--mono); font-size:0.78rem; letter-spacing:0.06em;
+  color:var(--line-dim); margin-bottom:24px; max-width:70ch;
+}
+.img-row{
+  display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0;
+}
+@media (max-width:700px){ .img-row{ grid-template-columns:1fr; } }
+.img-row.three{ grid-template-columns:1fr 1fr 1fr; }
+@media (max-width:900px){ .img-row.three{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .img-row.three{ grid-template-columns:1fr; } }
+.img-row figure, .detail-media figure{ margin:0; }
+.img-row img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center;
+  border-radius:2px; display:block; background:var(--paper);
+}
+.detail-media img{ width:100%; height:auto; display:block; }
+.detail-media.crop img{ aspect-ratio:16/9; object-fit:cover; }
+.img-row figcaption{
+  font-family:var(--mono); font-size:0.82rem; letter-spacing:0.06em;
+  color:var(--line-dim); text-transform:uppercase; margin-top:10px;
+  text-align:center;
+}
+.stat-row{
+  display:flex; flex-wrap:wrap; gap:28px; margin:30px 0;
+  padding:22px 0; border-top:1px dashed rgba(174,208,238,0.2); border-bottom:1px dashed rgba(174,208,238,0.2);
+}
+.stat-row div{ font-family:var(--mono); font-size:0.7rem; color:var(--line-dim); letter-spacing:0.06em; }
+.stat-row div b{ display:block; color:var(--gold); font-size:1.3rem; font-family:var(--sans); margin-top:4px; }
+.fallback-list{ margin:18px 0 0 0; padding-left:0; list-style:none; }
+.fallback-list li{
+  color:var(--line); font-size:1.08rem; font-weight:300; margin-bottom:12px;
+  padding-left:24px; position:relative;
+}
+.fallback-list li::before{
+  content:''; position:absolute; left:0; top:9px; width:8px; height:8px;
+  background:var(--safety);
+}
+.fallback-list .sub-list{ list-style:none; margin:10px 0 0 0; padding:0; }
+.fallback-list .sub-list li{
+  color:var(--line); font-size:1.08rem; margin-bottom:8px; padding-left:20px;
+}
+.fallback-list .sub-list li::before{
+  content:'–'; position:absolute; left:0; top:-2px; width:auto; height:auto;
+  background:none; color:var(--line); font-family:var(--sans);
+}
+.goal-label{
+  font-family:var(--sans); font-size:1.08rem; font-weight:700; letter-spacing:0.02em;
+  color:var(--line); text-transform:uppercase; margin-bottom:14px; display:block;
+}
+.results-label{
+  font-family:var(--sans); font-size:1.08rem; font-weight:700; letter-spacing:0.02em;
+  color:var(--line); text-transform:uppercase; margin:22px 0 10px; display:block;
+}
+
+/* grouped photo blocks — CSS-only, no new image files */
+.photo-block{
+  display:grid; gap:18px; background:#000; padding:18px; border-radius:2px; margin:24px 0;
+}
+.photo-block.grid-2x2{ grid-template-columns:1fr 1fr; }
+@media (max-width:600px){ .photo-block.grid-2x2{ grid-template-columns:1fr; } }
+.photo-block.stack{ grid-template-columns:1fr; }
+.photo-block img{ width:100%; height:100%; display:block; object-fit:contain; background:#fff; }
+.cinematic{
+  position:relative; overflow:hidden; background:#000;
+  aspect-ratio:21/9; margin:24px 0; border-radius:2px;
+}
+.cinematic img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.results-pair{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin:24px 0;
+}
+.results-pair .photo-block{ margin:0; }
+@media (max-width:800px){ .results-pair{ grid-template-columns:1fr; } }
+
 </style>
-</head>
 <body>
 
 <nav>
   <div class="nav-links">
-    <a href="index.html#work">Engineering</a>
-    <a href="index.html#art">Art &amp; Design</a>
-    <a href="index.html#about">About</a>
+    <a href="./#work">Engineering</a>
+    <a href="./#art">Art &amp; Design</a>
+    <a href="./#about">About</a>
     <a href="https://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </nav>
 
 <section class="sheet detail-hero">
-  <a class="back-link" href="index.html#work">← Back to Engineering Projects</a>
+  <a class="back-link" href="./#work">← Back to Engineering Projects</a>
   <h1 class="detail-title">Witch King Armor Project</h1>
   <div class="detail-sub">MAE 52 Final — Computer-Aided Design, UC Irvine</div>
 
-  <div class="detail-media">
-    <img src="https://static.wixstatic.com/media/685d3d_0b727187e33d46a89ee5013feaa77e8c~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ONE_OF_NINE_1%20(1)_edited.jpg" alt="Witch King of Angmar armor recreated in SolidWorks CAD">
-  </div>
-
-  <div class="detail-body">
-    <p>For UCI's MAE 52 (Computer-Aided Design) final project, recreated the Witch King of Angmar's armor from The Lord of the Rings in SolidWorks — rebuilt to her own body proportions rather than a flat reference model.</p>
-    <p>The final version contained 42 moving joints, split between ball and hinge connections, across 25 distinct armor parts.</p>
-
-    <div class="detail-specs">
-      <div>Class<b>UCI MAE 52</b></div>
-      <div>Tools<b>SolidWorks</b></div>
-      <div>Scope<b>25 parts, 42 joints</b></div>
+  <div class="detail-overview-grid">
+    <div class="detail-media">
+      <img src="website_photos/witchking/ONE_OF_NINE_1.JPG" alt="Witch King of Angmar armor recreated in SolidWorks CAD">
+    </div>
+    <div class="detail-body">
+      <h4>Project Overview</h4>
+      <p>For this final project, we were tasked with creating a complex project of our choice using SolidWorks. It had to include a number of advanced tools in addition to a mechanical aspect (in my case, these were the joints). I chose to CAD the Witch King of Angmar's armor from the Lord of the Rings, as I've been a long time fan of the movies.</p>
+      <ul class="fallback-list">
+        <li>Designed in SolidWorks for CAD class final project
+          <ul class="sub-list">
+            <li>Primary tools: lofted surface and surface offset + trim</li>
+          </ul>
+        </li>
+        <li>42 functional joints in assembly file</li>
+        <li>25 distinct armor parts</li>
+      </ul>
     </div>
   </div>
 
-  <div class="detail-gallery">
-    <img src="https://static.wixstatic.com/media/685d3d_c7447f1645644d34a574f8dc0ddf0bf1~mv2.jpg/v1/crop/x_12,y_0,w_1147,h_1147/fill/w_700,h_700,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2679_edited.jpg" alt="Detail shot related to the armor build">
-    <img src="https://static.wixstatic.com/media/685d3d_c7e2b92c2b8c4d198f24919383b97888~mv2.jpeg/v1/fill/w_700,h_700,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9EFB3E2D-7A84-4291-92CC-FD85FF75157C.jpeg" alt="Design sketchwork related to the armor build">
+  <!-- 1. MAKING THE SKELETON -->
+  <div class="detail-section">
+    <h4>1. Making the Skeleton</h4>
+    <p>My first step to creating the Witch King of Angmar's armor was getting the joints to work first - thus, I created a skeleton made of ball and hinge joints using my own rough measurements. These joint parts became a perfect launching point for each of my armor parts, as I could start with a copy of the part to build around.</p>
+    <div class="detail-media" style="max-width:420px; margin-left:auto; margin-right:auto;">
+      <img src="website_photos/witchking/skeleton.JPG" alt="Bare SolidWorks skeleton mannequin with ball and hinge joints">
+    </div>
+    <div class="img-row three">
+      <figure>
+        <img src="website_photos/witchking/calf1.png" alt="Dimensioned front view of the leg armor sketch">
+        <figcaption>Leg armor — dimensioned sketch</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/witchking/calf2.png" alt="Dimensioned side view of the leg armor loft">
+        <figcaption>Leg armor — dimensioned loft</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/witchking/calf3.png" alt="Finished leg armor surface loft">
+        <figcaption>Leg armor — finished loft</figcaption>
+      </figure>
+    </div>
   </div>
+
+  <!-- 2. BUILDING ARMOR AROUND JOINTS -->
+  <div class="detail-section">
+    <h4>2. Building Armor Around Joints</h4>
+    <p>To create the armor, I made copies of each of my part files and used them as a base around which to build surface lofts. Using offset surface and trim surface, I created additional texture. Once I was done with an armor piece, I would hide the part underneath and add it to the skeleton assembly.</p>
+  </div>
+
+  <!-- 3. CREATING THE MASK -->
+  <div class="detail-section">
+    <h4>3. Creating the Mask</h4>
+    <p>The mask was one of my more complex parts, as it wasn't as much of a cylindrical shape like most of my other pieces. However, after refining my armor-making process, I realized I could apply a similar method to the mask as well. After creating my initial loft, I inserted sketches I created to guide my surface trims. For additional details, I added layers and spikes around the top using a circular pattern.</p>
+    <div class="photo-block grid-2x2">
+      <img src="website_photos/witchking/mask_progress.png" alt="Mask loft with guide sketches and construction cylinder">
+      <img src="website_photos/witchking/masksketch.JPG" alt="Mask surface with guide sketch overlay">
+      <img src="website_photos/witchking/maskside.JPG" alt="Finished mask, side angle view">
+      <img src="website_photos/witchking/maskV3.JPG" alt="Finished mask, front symmetric view">
+    </div>
+  </div>
+
+  <!-- ADDITIONAL VIEWS -->
+  <div class="detail-section">
+    <h4>Additional Views</h4>
+    <div class="photo-block grid-2x2">
+      <img src="website_photos/witchking/ONE_OF_NINE.JPG" alt="Front view of the full assembled armor">
+      <img src="website_photos/witchking/ONE_OF_NINE_iso.JPG" alt="Wireframe isometric view of the posed armor assembly">
+      <img src="website_photos/witchking/ONE_OF_NINE_exploded2.JPG" alt="Exploded view of all 25 armor parts around the mannequin">
+      <img src="website_photos/witchking/witchkinghand.png" alt="Close-up detail of the gauntlet and hand joints">
+    </div>
+  </div>
+
 </section>
 
 </body>
