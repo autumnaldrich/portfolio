@@ -141,18 +141,17 @@
     width:100%; height:100%; object-fit:cover; border-radius:2px; display:block;
   }
   .height-row{
-    display:flex; align-items:stretch; justify-content:center;
-    gap:2px; margin:24px 0; background:var(--paper);
-    border-radius:2px; overflow:hidden;
+    display:flex; align-items:flex-end; justify-content:center;
+    gap:22px; margin:24px 0;
   }
   .height-row figure{ margin:0; text-align:center; flex:1; display:flex; flex-direction:column; }
   .height-row img{
     height:320px; width:100%; object-fit:contain;
-    display:block; background:var(--paper); flex:1;
+    display:block; flex:1;
   }
   .height-row figcaption{
     font-family:var(--mono); font-size:0.7rem; letter-spacing:0.04em;
-    color:var(--ink-dim); text-transform:uppercase; padding:8px 4px;
+    color:var(--line-dim); text-transform:uppercase; padding:8px 4px;
   }
   @media (max-width:800px){
     .height-row{ flex-wrap:wrap; }
