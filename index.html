@@ -282,7 +282,7 @@
   @media (max-width:520px){ .art-grid{ grid-template-columns:1fr; } }
   .art-card{
     position:relative; aspect-ratio:1; border-radius:2px; overflow:hidden;
-    background:var(--paper-dim);
+    background:var(--paper-dim); display:block; cursor:pointer;
   }
   .art-card img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s; }
   .art-card:hover img{ transform:scale(1.06); }
@@ -430,10 +430,10 @@
   </div>
 
   <div class="art-grid reveal">
-    <div class="art-card">
-      <img src="https://static.wixstatic.com/media/685d3d_7094c5599c5340d4878a16efed715cb9~mv2.jpeg/v1/crop/x_0,y_504,w_3024,h_3024/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2098.jpeg" alt="Handbuilt Tetris-piece lamp" loading="lazy">
+    <a class="art-card" href="tetrislamp.html">
+      <img src="tetrislamp_final_dark.JPG" alt="Handbuilt Tetris-piece lamp" loading="lazy">
       <div class="label">Tetris Lamp</div>
-    </div>
+    </a>
     <div class="art-card">
       <img src="https://static.wixstatic.com/media/685d3d_c7e2b92c2b8c4d198f24919383b97888~mv2.jpeg/v1/fill/w_500,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/9EFB3E2D-7A84-4291-92CC-FD85FF75157C.jpeg" alt="Bullet journal spread design" loading="lazy">
       <div class="label">Bullet Journal</div>
