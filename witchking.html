@@ -351,6 +351,7 @@
   letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
   margin-bottom:18px;
 }
+.detail-section h4.tight{ margin-bottom:6px; }
 .detail-overview-grid{
   display:grid; grid-template-columns:1fr 1.15fr; gap:52px; align-items:center;
   margin-bottom:20px;
@@ -374,7 +375,7 @@
   border-radius:2px; display:block; background:var(--paper);
 }
 .img-row.no-crop img{
-  aspect-ratio:358/748; object-fit:cover; object-position:center; background:#000; max-height:520px;
+  aspect-ratio:auto; object-fit:contain; background:transparent; max-height:520px;
 }
 .detail-media img{ width:100%; height:auto; display:block; }
 .detail-media.crop img{ aspect-ratio:16/9; object-fit:cover; }
@@ -491,7 +492,7 @@
 
   <!-- 1. MAKING THE SKELETON -->
   <div class="detail-section">
-    <h4>1. Making the Skeleton</h4>
+    <h4 class="tight">1. Making the Skeleton</h4>
     <div class="detail-overview-grid" style="margin-bottom:0;">
       <div class="detail-body">
         <p style="margin-bottom:0;">My first step to creating the Witch King of Angmar's armor was getting the joints to work first - thus, I created a skeleton made of ball and hinge joints using my own rough measurements. These joint parts became a perfect launching point for each of my armor parts, as I could start with a copy of the part to build around.</p>
