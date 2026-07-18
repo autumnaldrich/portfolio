@@ -133,6 +133,23 @@
     content:''; position:absolute; left:0; top:9px; width:8px; height:8px;
     background:var(--safety);
   }
+  .text-photo-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center;
+  }
+  @media (max-width:800px){ .text-photo-grid{ grid-template-columns:1fr; } }
+  .text-photo-grid img{
+    width:100%; height:100%; object-fit:cover; border-radius:2px; display:block;
+  }
+  .height-row{
+    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:center;
+    gap:20px; margin:24px 0;
+  }
+  .height-row figure{ margin:0; text-align:center; }
+  .height-row img{
+    height:280px; width:auto; max-width:100%; object-fit:contain;
+    border-radius:2px; display:block; background:var(--paper);
+  }
+  @media (max-width:800px){ .height-row img{ height:180px; } }
 
 </style>
 </head>
@@ -166,16 +183,9 @@
   <!-- 1. BOARD DESIGN -->
   <div class="detail-section">
     <h4>1. Making the Tetris Board Design</h4>
-    <p>To keep the design relatively accurate to the game, I had to place the pieces so they wouldn't clear a line in Tetris. That meant making sure to leave at least one gap per row while still using game-accurate Tetris piece shapes.</p>
-    <div class="img-row">
-      <figure>
-        <img src="website_photos/tetrislamp/tetrislamp_pattern.png" alt="Dimensioned Tetris piece layout pattern">
-        <figcaption>Dimensioned board pattern</figcaption>
-      </figure>
-      <figure>
-        <img src="website_photos/tetrislamp/tetrislamp_side1_V2.JPG" alt="CAD render of the first side panel with Tetris cutout pattern">
-        <figcaption>Side panel CAD, pattern applied</figcaption>
-      </figure>
+    <div class="text-photo-grid">
+      <p>To keep the design relatively accurate to the game, I had to place the pieces so they wouldn't clear a line in Tetris. That meant making sure to leave at least one gap per row while still using game-accurate Tetris piece shapes.</p>
+      <img src="website_photos/tetrislamp/tetrislamp_pattern.png" alt="Dimensioned Tetris piece layout pattern">
     </div>
   </div>
 
@@ -184,7 +194,11 @@
     <h4>2. Lamp Geometry</h4>
     <p>The geometry of the design was relatively simple, since I only had to make three distinct pieces: the top and two sides. The top could double as the bottom, and the sides opposite one another followed the same shape, just with a different cut pattern.</p>
     <p>This also laid the groundwork for easier tolerancing — I only had to make adjustments to the even sides (to account for the odd sides) and the top piece.</p>
-    <div class="img-row">
+    <div class="height-row">
+      <figure>
+        <img src="website_photos/tetrislamp/tetrislamp_side1_V2.JPG" alt="CAD render of the first side panel with Tetris cutout pattern">
+        <figcaption>Side panel, CAD</figcaption>
+      </figure>
       <figure>
         <img src="website_photos/tetrislamp/tetrislamp_side2_V2.JPG" alt="CAD render of the second side panel with Tetris cutout pattern">
         <figcaption>Opposite side panel, CAD</figcaption>
@@ -192,6 +206,10 @@
       <figure>
         <img src="website_photos/tetrislamp/tetrislamp_top.JPG" alt="CAD render of the top piece with slotted joints">
         <figcaption>Top piece, CAD</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/tetrislamp/tetrislamp_assembly.JPG" alt="Full CAD assembly render of the Tetris lamp">
+        <figcaption>Full assembly, CAD</figcaption>
       </figure>
     </div>
   </div>
@@ -207,8 +225,8 @@
         <figcaption>Test-fitting the side pieces</figcaption>
       </figure>
       <figure>
-        <img src="website_photos/tetrislamp/tetrislamp_assembly.JPG" alt="Full CAD assembly render of the Tetris lamp">
-        <figcaption>Full assembly, CAD</figcaption>
+        <img src="website_photos/tetrislamp/tolerances.jpeg" alt="Laser cut test coupon used to dial in tolerance">
+        <figcaption>Tolerance test cut</figcaption>
       </figure>
     </div>
   </div>
