@@ -460,6 +460,20 @@
 .results-pair .photo-block{ margin:0; }
 @media (max-width:800px){ .results-pair{ grid-template-columns:1fr; } }
 
+.equal-height-row{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:20px; margin:24px 0;
+}
+.equal-height-row figure{ margin:0; display:flex; flex-direction:column; align-items:center; }
+.equal-height-row img{
+  width:auto; height:320px; max-width:100%; object-fit:contain; display:block; background:#000;
+}
+.equal-height-row.short img{ height:220px; }
+.equal-height-row figcaption{
+  font-family:var(--mono); font-size:0.82rem; letter-spacing:0.06em;
+  color:var(--line-dim); text-transform:uppercase; margin-top:10px; text-align:center;
+}
+
 </style>
 <body>
 
@@ -489,20 +503,17 @@
 
   <!-- 1. DESIGNING THE CLAW -->
   <div class="detail-section">
-    <h4>1. Designing the Claw</h4>
-    <p>For this project, we were given two servos to work with - one for opening and closing the claw and one for the lift mechanism. I sketched out my design ideas in Procreate and created a CAD of my prototype in SolidWorks.</p>
-    <div class="detail-media" style="max-width:640px; margin-left:auto; margin-right:auto;">
-      <img src="website_photos/autonrover/claw_drawings.jpeg" alt="Hand-drawn Procreate sketches of the claw and lift mechanism">
+    <div class="detail-overview-grid" style="align-items:start;">
+      <div class="detail-body">
+        <h4>1. Designing the Claw</h4>
+        <p>For this project, we were given two servos to work with - one for opening and closing the claw and one for the lift mechanism. I sketched out my design ideas in Procreate and created a CAD of my prototype in SolidWorks.</p>
+        <p>To maximize the strength of the claw grip and lift mechanism while preventing overheating of the servos, I added 2:1 torque gear ratios to each of my rotation points. I also added holes on the ends of the claw to mount rubber bands for better grip on the can.</p>
+      </div>
+      <div class="detail-media">
+        <img src="website_photos/autonrover/claw_drawings.jpeg" alt="Hand-drawn Procreate sketches of the claw and lift mechanism">
+      </div>
     </div>
-    <p>To maximize the strength of the claw grip and lift mechanism while preventing overheating of the servos, I added 2:1 torque gear ratios to each of my rotation points. I also added holes on the ends of the claw to mount rubber bands for better grip on the can.</p>
-    <div class="detail-media" style="max-width:480px; margin-left:auto; margin-right:auto;">
-      <img src="website_photos/autonrover/claw_iso.png" alt="Isometric CAD view of the claw and lift mechanism">
-    </div>
-    <div class="photo-block stack">
-      <img src="website_photos/autonrover/claw_side_down.png" alt="Side view CAD of the claw mechanism, lift lowered">
-      <img src="website_photos/autonrover/claw_side_up.png" alt="Side view CAD of the claw mechanism, lift raised">
-    </div>
-    <div class="img-row three no-crop">
+    <div class="equal-height-row">
       <figure>
         <img src="website_photos/autonrover/claw_prototype_top.jpeg" alt="Top-down photo of the physical claw prototype">
         <figcaption>Prototype — Top View</figcaption>
@@ -510,6 +521,10 @@
       <figure>
         <img src="website_photos/autonrover/claw_prototype.jpeg" alt="Angled photo of the physical claw prototype">
         <figcaption>Prototype — Angled View</figcaption>
+      </figure>
+      <figure>
+        <img src="website_photos/autonrover/claw_cad_prototype.png" alt="CAD model of the claw and lift mechanism prototype">
+        <figcaption>Prototype — CAD</figcaption>
       </figure>
     </div>
   </div>
@@ -529,26 +544,38 @@
         </ul>
       </li>
     </ul>
-    <div class="img-row" style="grid-template-columns:1fr 1fr; max-width:520px; margin-left:auto; margin-right:auto;">
+    <div class="equal-height-row">
       <figure>
-        <img src="website_photos/autonrover/claw_top_closed.png" alt="Top view CAD of the claw, closed" style="aspect-ratio:334/612; object-fit:contain; background:#000;">
+        <img src="website_photos/autonrover/claw_top_closed.png" alt="Top view CAD of the claw, closed">
+        <figcaption>Closed</figcaption>
       </figure>
       <figure>
-        <img src="website_photos/autonrover/claw_top_open.png" alt="Top view CAD of the claw, open" style="aspect-ratio:370/610; object-fit:contain; background:#000;">
+        <img src="website_photos/autonrover/claw_top_open.png" alt="Top view CAD of the claw, open">
+        <figcaption>Open</figcaption>
       </figure>
     </div>
-    <div class="detail-media" style="margin-top:16px;">
+    <div class="detail-media" style="max-width:260px; margin:16px auto 0;">
       <img src="website_photos/autonrover/MO_final_2.jpeg" alt="Finished claw mechanism with yellow rubber band grips">
+    </div>
+    <div class="detail-media" style="max-width:480px; margin:16px auto 0;">
+      <video controls playsinline style="width:100%; display:block;">
+        <source src="website_photos/autonrover/claw_working.mp4" type="video/mp4">
+        Your browser doesn't support embedded video. <a href="website_photos/autonrover/claw_working.mp4">Download the clip</a> instead.
+      </video>
     </div>
   </div>
 
   <!-- 3. IR SENSOR MOUNT -->
   <div class="detail-section">
-    <h4>3. IR Sensor Mount</h4>
-    <p>To integrate three IR sensors onto the rover, I designed and 3D printed a modular mounting bracket that enabled flexible positioning during testing and calibration. To support this adjustability, we laser cut a square cutout with slotted features into the chassis, allowing the mount to be securely attached while still permitting controlled movement.</p>
-    <p>This design provided two degrees of adjustability: the entire bracket could translate forward and backward along the chassis, while each individual IR sensor could be repositioned laterally and radially (left/right and closer/further). This configurability allowed us to efficiently optimize sensor placement for performance without requiring multiple redesigns or reprints.</p>
-    <div class="detail-media" style="max-width:640px; margin-left:auto; margin-right:auto;">
-      <img src="website_photos/autonrover/IR_sensor_mount.png" alt="Technical drawing of the modular IR sensor mounting bracket">
+    <div class="detail-overview-grid" style="align-items:center;">
+      <div class="detail-body">
+        <h4>3. IR Sensor Mount</h4>
+        <p>To integrate three IR sensors onto the rover, I designed and 3D printed a modular mounting bracket that enabled flexible positioning during testing and calibration. To support this adjustability, we laser cut a square cutout with slotted features into the chassis, allowing the mount to be securely attached while still permitting controlled movement.</p>
+        <p style="margin-bottom:0;">This design provided two degrees of adjustability: the entire bracket could translate forward and backward along the chassis, while each individual IR sensor could be repositioned laterally and radially (left/right and closer/further). This configurability allowed us to efficiently optimize sensor placement for performance without requiring multiple redesigns or reprints.</p>
+      </div>
+      <div class="detail-media">
+        <img src="website_photos/autonrover/IR_sensor_mount.png" alt="Technical drawing of the modular IR sensor mounting bracket">
+      </div>
     </div>
   </div>
 
@@ -556,7 +583,7 @@
   <div class="detail-section">
     <h4>4. Creating MO Design</h4>
     <p>As a team, we decided to model our rover after MO from WALL-E, as he is also a line following robot in the movie. MO's body also served to cover up our wiring, giving our rover a more clean and refined look. Additionally, in later versions of our rover, we decided to move the IR sensors to the middle of our chassis since the close proximity to the wheels affected the line following accuracy. Since MO's body darkened the area around the IR sensors, it greatly improved the line tracking performance.</p>
-    <div class="img-row three no-crop">
+    <div class="equal-height-row">
       <figure>
         <img src="website_photos/autonrover/MO_cad.png" alt="Full CAD assembly of the rover with MO-inspired body">
         <figcaption>Full Assembly — CAD</figcaption>
