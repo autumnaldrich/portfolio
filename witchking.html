@@ -374,7 +374,8 @@
   border-radius:2px; display:block; background:var(--paper);
 }
 .img-row.no-crop img{
-  aspect-ratio:auto; object-fit:contain; background:transparent;
+  width:auto; max-width:100%; aspect-ratio:auto; object-fit:contain;
+  background:transparent; max-height:440px; margin:0 auto;
 }
 .detail-media img{ width:100%; height:auto; display:block; }
 .detail-media.crop img{ aspect-ratio:16/9; object-fit:cover; }
