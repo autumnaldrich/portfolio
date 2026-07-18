@@ -141,15 +141,24 @@
     width:100%; height:100%; object-fit:cover; border-radius:2px; display:block;
   }
   .height-row{
-    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:center;
-    gap:20px; margin:24px 0;
+    display:flex; align-items:stretch; justify-content:center;
+    gap:2px; margin:24px 0; background:var(--paper);
+    border-radius:2px; overflow:hidden;
   }
-  .height-row figure{ margin:0; text-align:center; }
+  .height-row figure{ margin:0; text-align:center; flex:1; display:flex; flex-direction:column; }
   .height-row img{
-    height:280px; width:auto; max-width:100%; object-fit:contain;
-    border-radius:2px; display:block; background:var(--paper);
+    height:320px; width:100%; object-fit:contain;
+    display:block; background:var(--paper); flex:1;
   }
-  @media (max-width:800px){ .height-row img{ height:180px; } }
+  .height-row figcaption{
+    font-family:var(--mono); font-size:0.7rem; letter-spacing:0.04em;
+    color:var(--ink-dim); text-transform:uppercase; padding:8px 4px;
+  }
+  @media (max-width:800px){
+    .height-row{ flex-wrap:wrap; }
+    .height-row figure{ flex:1 1 45%; }
+    .height-row img{ height:180px; }
+  }
 
 </style>
 </head>
@@ -182,9 +191,11 @@
 
   <!-- 1. BOARD DESIGN -->
   <div class="detail-section">
-    <h4>1. Making the Tetris Board Design</h4>
     <div class="text-photo-grid">
-      <p>To keep the design relatively accurate to the game, I had to place the pieces so they wouldn't clear a line in Tetris. That meant making sure to leave at least one gap per row while still using game-accurate Tetris piece shapes.</p>
+      <div>
+        <h4>1. Making the Tetris Board Design</h4>
+        <p>To keep the design relatively accurate to the game, I had to place the pieces so they wouldn't clear a line in Tetris. That meant making sure to leave at least one gap per row while still using game-accurate Tetris piece shapes.</p>
+      </div>
       <img src="website_photos/tetrislamp/tetrislamp_pattern.png" alt="Dimensioned Tetris piece layout pattern">
     </div>
   </div>
