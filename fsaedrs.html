@@ -316,7 +316,7 @@
   filter:brightness(0.4) saturate(0.85);
 }
 .detail-banner .hero-bg::after{
-  background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.8) 100%);
+  background:rgba(0,0,0,0.6);
 }
 .detail-banner-inner{
   position:relative; z-index:2;
@@ -337,7 +337,7 @@
   margin-bottom:18px;
 }
 .detail-title{
-  font-family:var(--sans); font-size:clamp(1.8rem, 4.5vw, 3rem); font-weight:800;
+  font-family:var(--sans); font-size:clamp(1.6rem, 3.8vw, 2.5rem); font-weight:800;
   letter-spacing:0.08em; line-height:1.15; text-transform:uppercase; color:var(--paper);
   margin-bottom:18px;
 }
@@ -387,6 +387,15 @@
 .img-row img{
   width:100%; height:100%; object-fit:cover; border-radius:2px;
   display:block; background:var(--paper);
+}
+.img-row.img-row-fit{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:20px;
+}
+.img-row.img-row-fit img{
+  width:auto; height:340px; max-width:100%; object-fit:contain; background:transparent;
+}
+@media (max-width:700px){
+  .img-row.img-row-fit img{ height:auto; width:100%; }
 }
 .stat-row{
   display:flex; flex-wrap:wrap; justify-content:center; gap:56px; margin:44px 0;
@@ -457,7 +466,7 @@
   <div class="detail-section">
     <h4>Linkages</h4>
     <p>Goal: CAD linkage geometry that rotates the middle airfoil from its original angle of attack (27.5°) down to 2.5°, and the top foil from 55° down to 2.5°.</p>
-    <div class="img-row">
+    <div class="img-row img-row-fit">
       <figure>
         <img src="website_photos/fsaedrs/DRS_up_side.png" alt="Linkage geometry, high-downforce position, side view">
       </figure>
