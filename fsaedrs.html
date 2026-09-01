@@ -437,7 +437,7 @@
 </div>
 
 <section class="sheet detail-hero">
-  <div class="detail-overview-grid">
+  <div class="detail-overview-grid reveal">
     <div class="detail-media">
       <img src="website_photos/fsaedrs/prototype_movement.gif" alt="DRS mechanism actuating on the rear wing">
     </div>
@@ -449,7 +449,7 @@
   </div>
 
   <!-- PROTOTYPE -->
-  <div class="detail-section">
+  <div class="detail-section reveal">
     <h4>CAD Model</h4>
     <div class="img-row">
       <figure>
@@ -462,7 +462,7 @@
   </div>
 
   <!-- LINKAGES -->
-  <div class="detail-section">
+  <div class="detail-section reveal">
     <h4>Linkages</h4>
     <p>Goal: CAD linkage geometry that rotates the middle airfoil from its original angle of attack (27.5°) down to 2.5°, and the top foil from 55° down to 2.5°.</p>
     <div class="img-row">
@@ -479,7 +479,7 @@
   </div>
 
   <!-- SIMULATIONS -->
-  <div class="detail-section">
+  <div class="detail-section reveal">
     <h4>Simulations</h4>
     <p>To estimate the downforce vs. drag benefits of implementing DRS, our Aerodynamics Simulations team ran two STAR-CCM+ simulations of our rear wing: one in high-drag mode and one in low-drag mode (DRS unactivated vs. activated).</p>
     <p>Based on the downforce and drag numbers we received, implementing DRS allows us to achieve an estimated <b style="color:var(--paper)">80–90% decrease in drag</b>.</p>
@@ -494,7 +494,7 @@
   </div>
 
   <!-- FEA -->
-  <div class="detail-section">
+  <div class="detail-section reveal">
     <h4>Finite Element Analysis</h4>
     <p>To test the strength of the linkages, I ran simulations in SolidWorks assuming 1/4" aluminum (6061 alloy). Using the downforce numbers from our simulations and the maximum stall force of the piston, I used ~400N as a worst-case scenario force.</p>
     <p>As shown below, the linkages do not deform under the maximum load, taking into account our estimated top speeds plus actuation force.</p>
@@ -520,6 +520,16 @@
   </div>
 
 </section>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
