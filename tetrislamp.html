@@ -424,16 +424,19 @@
   width:100%; height:100%; object-fit:cover; border-radius:2px; display:block;
 }
 .height-row{
-  display:flex; align-items:flex-start; justify-content:center; flex-wrap:wrap;
-  gap:22px; margin:24px 0;
+  display:flex; align-items:stretch; width:100%;
+  gap:16px; margin:24px 0;
 }
-.height-row figure{ margin:0; flex:0 0 auto; }
+.height-row figure{ margin:0; flex:1.15 1 0; min-width:0; }
+.height-row figure.portrait{ flex:0.85 1 0; }
 .height-row img{
-  height:230px; width:230px; object-fit:cover; border-radius:2px;
+  width:100%; height:280px; object-fit:cover; border-radius:2px;
   display:block;
 }
 @media (max-width:800px){
-  .height-row img{ height:150px; width:150px; }
+  .height-row{ flex-wrap:wrap; }
+  .height-row figure, .height-row figure.portrait{ flex:1 1 calc(50% - 8px); }
+  .height-row img{ height:200px; }
 }
 
 /* lighter banner treatment for this page */
@@ -491,10 +494,10 @@
     <p>The geometry of the design was relatively simple, since I only had to make three distinct pieces: the top and two sides. The top could double as the bottom, and the sides opposite one another followed the same shape, just with a different cut pattern.</p>
     <p>This also laid the groundwork for easier tolerancing — I only had to make adjustments to the even sides (to account for the odd sides) and the top piece.</p>
     <div class="height-row">
-      <figure>
+      <figure class="portrait">
         <img src="website_photos/tetrislamp/tetrislamp_side1_V2.JPG" alt="CAD render of the first side panel with Tetris cutout pattern">
       </figure>
-      <figure>
+      <figure class="portrait">
         <img src="website_photos/tetrislamp/tetrislamp_side2_V2.JPG" alt="CAD render of the second side panel with Tetris cutout pattern">
       </figure>
       <figure>
