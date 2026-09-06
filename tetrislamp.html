@@ -391,6 +391,9 @@
 @media (max-width:700px){
   .img-row.img-row-fit img{ height:auto; width:100%; }
 }
+.img-row.img-row-landscape img{
+  aspect-ratio:4/3; object-fit:cover;
+}
 .stat-row{
   display:flex; flex-wrap:wrap; justify-content:center; gap:56px; margin:44px 0;
   padding:44px 0;
@@ -422,6 +425,9 @@
 @media (max-width:800px){ .text-photo-grid{ grid-template-columns:1fr; } }
 .text-photo-grid img{
   width:100%; height:100%; object-fit:cover; border-radius:2px; display:block;
+}
+.text-photo-grid img.square{
+  aspect-ratio:1; height:auto;
 }
 .height-row{
   display:flex; align-items:stretch; width:100%;
@@ -511,27 +517,29 @@
 
   <!-- 3. CALCULATING TOLERANCES -->
   <div class="detail-section reveal">
-    <h4>3. Calculating Tolerances</h4>
-    <p>Tolerancing the sides was by far the most challenging part of this project, since this was my first time working with a laser cutter and having to account for kerf. My goal for the fit was to assemble the lamp without glue — I wanted to be able to take the lights in and out with ease, but also have it hold itself together.</p>
-    <p>Before cutting whole pieces, I created a test cut to see which fit worked best with the 6mm thick wood. Having previously only worked with 3D printing, I was used to adding <i>positive</i> tolerance to my pieces — so I greatly underestimated how much wood the laser would burn off. I eventually landed on a negative tolerance of around 0.4mm.</p>
-    <div class="img-row">
-      <figure>
-        <img src="website_photos/tetrislamp/tetrislamp_side.JPG" alt="Hand holding a test-fit side piece to check tolerance">
-      </figure>
-      <figure>
-        <img src="website_photos/tetrislamp/tolerances.jpeg" alt="Laser cut test coupon used to dial in tolerance">
-      </figure>
+    <div class="text-photo-grid">
+      <div>
+        <h4>3. Calculating Tolerances</h4>
+        <p>Tolerancing the sides was by far the most challenging part of this project, since this was my first time working with a laser cutter and having to account for kerf. My goal for the fit was to assemble the lamp without glue — I wanted to be able to take the lights in and out with ease, but also have it hold itself together.</p>
+        <p style="margin-bottom:0;">Before cutting whole pieces, I created a test cut to see which fit worked best with the 6mm thick wood. Having previously only worked with 3D printing, I was used to adding <i>positive</i> tolerance to my pieces — so I greatly underestimated how much wood the laser would burn off. I eventually landed on a negative tolerance of around 0.4mm.</p>
+      </div>
+      <img class="square" src="website_photos/tetrislamp/tolerances.jpeg" alt="Laser cut test coupon used to dial in tolerance">
     </div>
   </div>
 
   <!-- 4. DESIGN CHANGES + CUTTING ISSUES -->
   <div class="detail-section reveal">
-    <h4>4. Design Changes &amp; Cutting Issues</h4>
-    <p>While dialing in the tolerance for the even sides and the top, I cut one of the odd sides and ran into two problems: excessive bending, and the laser cutter struggling to cut all the way through the 6mm wood.</p>
-    <ul class="fallback-list">
-      <li>To fix the bending, I added a small notch at the top of the piece.</li>
-      <li>The laser cutter took more tuning — I tested different power and speed settings, and found that cutting fewer pieces at once, with the more complex ones placed toward the center, improved accuracy.</li>
-    </ul>
+    <div class="text-photo-grid">
+      <img class="square" src="website_photos/tetrislamp/tetrislamp_side.JPG" alt="Hand holding a test-fit side piece to check tolerance">
+      <div>
+        <h4>4. Design Changes &amp; Cutting Issues</h4>
+        <p>While dialing in the tolerance for the even sides and the top, I cut one of the odd sides and ran into two problems: excessive bending, and the laser cutter struggling to cut all the way through the 6mm wood.</p>
+        <ul class="fallback-list" style="margin-bottom:0;">
+          <li>To fix the bending, I added a small notch at the top of the piece.</li>
+          <li>The laser cutter took more tuning — I tested different power and speed settings, and found that cutting fewer pieces at once, with the more complex ones placed toward the center, improved accuracy.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- 5. POST LASER DETAILS -->
