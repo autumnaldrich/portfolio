@@ -68,6 +68,41 @@
 
   @media (max-width:720px){
     .nav-links{ display:none; }
+    .menu-toggle{ display:flex; }
+  }
+
+  .menu-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:26px; height:20px; background:none; border:none; cursor:pointer; padding:0;
+    position:relative; z-index:110;
+  }
+  .menu-toggle span{
+    display:block; width:100%; height:2px; background:var(--paper);
+    transition:transform 0.25s ease, opacity 0.25s ease;
+  }
+  .menu-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2){ opacity:0; }
+  .menu-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    position:fixed; top:0; right:0; height:100vh; width:min(72vw,300px);
+    background:rgba(0,0,0,0.97); backdrop-filter:blur(6px);
+    border-left:1px solid rgba(174,208,238,0.25);
+    display:flex; flex-direction:column;
+    padding:100px 0 40px;
+    transform:translateX(100%);
+    transition:transform 0.3s ease;
+    z-index:105;
+  }
+  .mobile-menu.open{ transform:translateX(0); }
+  .mobile-menu a{
+    font-family:var(--mono); font-size:0.9rem; letter-spacing:0.08em;
+    color:var(--paper); text-transform:uppercase;
+    padding:18px 30px; border-bottom:1px solid rgba(174,208,238,0.15);
+  }
+  .mobile-menu a:hover{ color:var(--gold); }
+  @media (min-width:721px){
+    .mobile-menu{ display:none; }
   }
 
   /* ---------- SHEET FRAME (signature element) ---------- */
@@ -302,7 +337,7 @@
     width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:2px;
     border:1px solid rgba(174,208,238,0.25);
   }
-  .about-body p{ color:var(--line); font-size:1.05rem; margin-bottom:20px; max-width:60ch; }
+  .about-body p{ color:var(--paper); font-size:1.05rem; margin-bottom:20px; max-width:60ch; }
   .about-contacts{ display:flex; flex-wrap:wrap; gap:16px; margin-top:28px; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -347,7 +382,17 @@
     <a href="#about">About</a>
     <a href="https://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
   </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Engineering</a>
+  <a href="#art">Art &amp; Design</a>
+  <a href="#about">About</a>
+  <a href="https://www.linkedin.com/in/autumnaldrich" target="_blank" rel="noopener">LinkedIn</a>
+</div>
 
 <!-- HERO -->
 <section class="hero sheet">
@@ -471,6 +516,19 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
 </script>
 
 </body>
